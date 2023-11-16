@@ -1,25 +1,64 @@
-## LDTS_<T><G> - <PROJECT NAME>
+## LDTS_T09G04 - SPACE INVASORS
 
-> Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
+In this next-gen 2D game, you will be able to play a reimagined space invaders game, you will be able to play solo or local co-op, when playing local co-op both players will share the same screen and keyboard! There will be a lot of different enemies with different characteristics and therefore different difficulty.
 
-**Example**:
-
-In this exciting platform game you can help KangarooBoy save the world, by collecting all the coins throughout ten different levels in which you will […].
-
-This project was developed by *John Doe* (*john.doe*@fe.up.pt) and *Jane Doe* (*jane.doe*@fe.up.pt) for LPOO 2018⁄19.
+This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida Fonseca* (*up202207742@fe.up.pt*) and *Nuno França* (*up2018075530@fe.up.pt*) for LDTS 2023/2024.
 
 ### IMPLEMENTED FEATURES
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
 
-**Examples**:
-
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
-
 ### PLANNED FEATURES
 
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+1. **Player Spaceship:**
+   - A controllable spaceship at the bottom of the screen that can move horizontally to evade enemy attacks.
+  
+2. **Enemy Invaders:**
+   - Rows of alien invaders that move horizontally and descend towards the player. They fire projectiles at the player's spaceship.
+
+3. **Player Shooting:**
+   - The player can shoot projectiles towards the enemy invaders to destroy them.
+
+4. **Enemy Movement:**
+   - The enemy invaders move left and right in a coordinated pattern. As they reach the screen edges, they descend one row.
+
+5. **Collision Detection:**
+   - Check for collisions between player shots and enemy invaders. If a collision occurs, the corresponding enemy invader is destroyed.
+
+6. **Score System:**
+   - Keep track of the player's score, which increases each time an enemy invader is successfully destroyed.
+
+7. **Infinite Level:**
+   - Implement an infinite level and as the player progresses and as the time goes by, the speed, health and aggression of the enemy invaders increases and more enemies keep appearing.
+
+8. **Game Over:**
+   - Implement a game-over condition. The game ends when the player's spaceship is hit by an enemy projectile and loses all its lives or when the enemy invaders reach the bottom of the screen.
+
+9. **Sound Effects:**
+   - Add sound effects for actions such as shooting, enemy destruction, and game over to enhance the gaming experience.
+
+10. **Graphics and Animation:**
+    - Use graphics to represent the player's spaceship, enemy invaders, and projectiles. Implement animations for movements and explosions.
+
+11. **Responsive Controls:**
+    - Ensure smooth and responsive controls for the player's spaceship, allowing easy navigation and shooting.
+
+12. **Power-ups:**
+    - Include 4 power-ups that provide temporary benefits to the player, such as increased damage on the player shots, invincibility for 20 seconds, double the player speed and doulbe the player shots speed.
+
+13. **High Score Tracking:**
+    - Keep track of the player's highest score across multiple game sessions.
+
+14. **Pause/Resume Functionality:**
+    - Allow the player to pause the game and resume from the same state.
+
+15. **Game Instructions:**
+    - Provide clear instructions or a tutorial on how to play the game.
+
+16. **Game Menu:**
+    - Create a visually appealing game window with a clear display of the player's score, remaining lives, and other relevant information.
+
+These features collectively contribute to an engaging and enjoyable Space Invasors gaming experience.
 
 ### DESIGN
 
@@ -77,9 +116,6 @@ The use of the State Pattern in the current design allows the following benefits
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
+- Artur Telo:
+- Margarida Fonseca :
+- Nuno França: 
