@@ -1,4 +1,4 @@
-## LDTS_T09G04 - SPACE INVASORS
+## LDTS_T09G04 - SPACE WARS
 
 In this next-gen 2D game, you will be able to play a reimagined space invaders game, you will be able to play solo or local co-op, when playing local co-op both players will share the same screen and keyboard! There will be a lot of different enemies with different characteristics and therefore different difficulty.
 
@@ -44,7 +44,7 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
     - Ensure smooth and responsive controls for the player's spaceship, allowing easy navigation and shooting.
 
 12. **Power-ups:**
-    - Include 4 power-ups that provide temporary benefits to the player, such as increased damage on the player shots, invincibility for 20 seconds, double the player speed and doulbe the player shots speed.
+    - Include 4 power-ups that provide temporary benefits to the player, such as increased damage on the player shots, invincibility for 20 seconds, double the player speed and double the player shots speed.
 
 13. **High Score Tracking:**
     - Keep track of the player's highest score across multiple game sessions.
