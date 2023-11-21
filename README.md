@@ -4,6 +4,15 @@ In this next-gen 2D game, you will be able to play a reimagined space invaders g
 
 This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida Fonseca* (*up202207742@fe.up.pt*) and *Nuno França* (*up2018075530@fe.up.pt*) for LDTS 2023/2024.
 
+### Mockups
+
+![Menu](/assets/Menu.png)
+*<div align="center">Fig1. Menu</div>*
+
+![Gameplay](/assets/gameplay.png)
+*<div align="center">Fig2. Gameplay</div>*
+
+
 ### IMPLEMENTED FEATURES
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
@@ -86,8 +95,6 @@ We have applied the **State** pattern. This pattern allows you to represent diff
 **Implementation**
 
 The following figure shows how the pattern’s roles were mapped to the application classes.
-
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
 
 These classes can be found in the following files:
 
