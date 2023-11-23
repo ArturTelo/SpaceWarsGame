@@ -12,6 +12,17 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 ![Gameplay](/assets/gameplay.png)
 *<div align="center">Fig2. Gameplay</div>*
 
+![Gameplay3](/assets/gameplay3.png)
+*<div align="center">Fig3. Gameplay with two enemy shots</div>*
+
+![Gameplay4](/assets/gameplay4.png)
+*<div align="center">Fig4. Gameplay with enemies and hero movement</div>*
+
+![Gameplay2](/assets/gameplay2.png)
+*<div align="center">Fig5. Gameplay with some enemies killed and a coin dropping</div>*
+
+![Credits](/assets/credits.png)
+*<div align="center">Fig6. Credits</div>*
 
 ### IMPLEMENTED FEATURES
 
