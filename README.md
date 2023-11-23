@@ -21,7 +21,7 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 ![Gameplay2](/assets/gameplay2.png)
 *<div align="center">Fig5. Gameplay with some enemies killed and a coin dropping</div>*
 
-![Credits](/assets/credits.png)
+![Credits](/assets/Credits.png)
 *<div align="center">Fig6. Credits</div>*
 
 ### IMPLEMENTED FEATURES
