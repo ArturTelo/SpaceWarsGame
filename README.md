@@ -82,6 +82,20 @@ These features collectively contribute to an engaging and enjoyable Space Invaso
 
 ### DESIGN
 
+
+#### Design patterns
+
+For the implementation of our game, we went with three different design patterns:
+
+- *State Pattern* - Which allows to differentiate between the two principle states, game state and menu state
+
+- *Composition* - Which is a great way to englobe all the different types of enemies that are present in the game.
+
+- *MVC* - Also known as the Model View Controller Architectural Pattern, this pattern allows to aggregate the game logic and connect the view of the game with all the data/logic and how the inputs are processed.
+
+
+### DESIGN - template
+
 > This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
 
 - **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
@@ -125,7 +139,7 @@ The use of the State Pattern in the current design allows the following benefits
 
 #### KNOWN CODE SMELLS
 
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
+Currently there are no known code smells.
 
 ### TESTING
 
