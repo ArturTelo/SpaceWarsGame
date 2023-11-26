@@ -21,8 +21,14 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 ![Gameplay2](/assets/gameplay2.png)
 *<div align="center">Fig5. Gameplay with some enemies killed and a coin dropping</div>*
 
-![Credits](/assets/Credits.png)
-*<div align="center">Fig6. Credits</div>*
+![Paused](/assets/paused.png)
+*<div align="center">Fig6. Paused game</div>*
+
+![Gameover](/assets/gameover.png)
+*<div align="center">Fig7. Game Over</div>*
+
+![Credits](/assets/credits.png)
+*<div align="center">Fig8. Credits</div>*
 
 ### IMPLEMENTED FEATURES
 
@@ -81,7 +87,6 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 These features collectively contribute to an engaging and enjoyable Space Invasors gaming experience.
 
 ### DESIGN
-
 
 #### Design patterns
 
@@ -181,5 +186,5 @@ Currently there are no known code smells.
 ### SELF-EVALUATION
 
 - Artur Telo:
-- Margarida Fonseca :
+- Margarida Fonseca:
 - Nuno França: 
