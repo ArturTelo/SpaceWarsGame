@@ -27,7 +27,7 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 ![Gameover](/assets/gameover.png)
 *<div align="center">Fig7. Game Over</div>*
 
-![Credits](/assets/credits.png)
+![Credits](/assets/Credits.png)
 *<div align="center">Fig8. Credits</div>*
 
 ### IMPLEMENTED FEATURES
