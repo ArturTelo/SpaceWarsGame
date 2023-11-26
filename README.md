@@ -30,6 +30,13 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 ![Credits](/assets/Credits.png)
 *<div align="center">Fig8. Credits</div>*
 
+
+### UML Diagram
+![UML](/assets/UML_Diagram.png)
+*<div align="center">Fig9. UML Diagram</div>*
+
+
+
 ### IMPLEMENTED FEATURES
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
@@ -185,6 +192,6 @@ Currently there are no known code smells.
 
 ### SELF-EVALUATION
 
-- Artur Telo:
-- Margarida Fonseca:
-- Nuno França: 
+- Artur Telo: 33.3(3)%
+- Margarida Fonseca: 33.3(3)%
+- Nuno França: 33.3(3)%
