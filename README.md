@@ -87,55 +87,87 @@ These features collectively contribute to an engaging and enjoyable Space Invaso
 
 For the implementation of our game, we went with three different design patterns:
 
-- *State Pattern* - Which allows to differentiate between the two principle states, game state and menu state
+- **State Pattern** - Which allows to differentiate between the two principle states, game state and menu state
 
-- *Composition* - Which is a great way to englobe all the different types of enemies that are present in the game.
+- **Composite** - Which is a great way to englobe all the different types of enemies that are present in the game.
 
-- *MVC* - Also known as the Model View Controller Architectural Pattern, this pattern allows to aggregate the game logic and connect the view of the game with all the data/logic and how the inputs are processed.
+- **MVC** - Also known as the Model View Controller Architectural Pattern, this pattern allows to aggregate the game logic and connect the view of the game with all the data/logic and how the inputs are processed.
 
 
-### DESIGN - template
-
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
-
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
-
-**Example of one of such subsections**:
-
-------
-
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
+#### THE PLAYER INPUTS SHOULD BEHAVE DIFFERENTLY DEPENDING IF ITS ON MENU STATE OR GAME STATE
 
 **Problem in Context**
 
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
+Not having different states for the menu and game creates a lot of conditional logic, where either the player is on the menu or actually playing the game, which violates principles regarding good code.
 
 **The Pattern**
 
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
+We then applied the State pattern. This patern allows us to represent different states for different interactions. With this pattern we can then switch to a different state depending on the interaction, eliminating the problems associated with unecessary conditional logic.
 
 **Implementation**
 
-The following figure shows how the pattern’s roles were mapped to the application classes.
+The UML Diagram shows how the pattern is currently implemented.
 
-These classes can be found in the following files:
-
-- [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-- [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-- [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-- [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-- [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
+**TODO** Implementation in code.
 
 **Consequences**
 
 The use of the State Pattern in the current design allows the following benefits:
 
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
-- There are now more classes and instances to manage, but still in a reasonable number.
+- Different states for different implementations.
+- Reducing the clutter created by unecessary conditonals.
+
+#### THE DIFFERENT TYPES OF ENEMIES SHOULD BE COMPOSED INTO MORE COMPLEX AND GLOBAL ENEMY
+
+**Problem in Context**
+
+Not having a general class for Enemy, creates an exaggerated and unecessary amount of classes one for each enemy and violates the Open-Closed Principle.
+
+**The Pattern**
+
+In order to change that, we applied the Composite Pattern, which allows us to represent part-whole hierarchies of objects.
+
+**Implementation**
+
+The UML Diagram shows how the pattern is currently implemented.
+
+**TODO** Implementation in code.
+
+**Consequences**
+
+The use of the Composite Pattern in the current design allows the following benefits:
+
+- Clients can be kept simple.
+- In case we want to add more different types of enemies, it'll be easier.
+- Primitive enemies can be composed into a Enemy more complex.
+
+#### KNOWN CODE SMELLS
+
+Currently there are no known code smells.
+
+### THERE SHOULD BE A SEPARATION BETWEEN THE VIEW, MODEL AND CONTROLLER 
+
+**Problem in Context**
+
+Not having a separation between the View, Model and Controller, violates almost every good practice of good coding. Since we want to differentiate how the data is repesented, to how the display of data happens and how the inputs of the user are interpreted.
+
+**The Pattern**
+
+In order to change that, we applied the MVC Pattern, where the model only represents de data. The View will display the model data and sends actions for the user to interpret. Finally the controller provides new model data to the view and interprets new user actions.
+
+**Implementation**
+
+The UML Diagram shows how the pattern is currently implemented.
+
+**TODO** Implementation in code.
+
+**Consequences**
+
+The use of the MVC Pattern in the current design allows the following benefits:
+
+- Encourages code reuse by isolating the business logic.
+- Facilitates unit testing as each component.
+- Supports scalability by allowing each component to evolve independently.
 
 #### KNOWN CODE SMELLS
 
