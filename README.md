@@ -33,9 +33,8 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 
 ### UML Diagram
 
-![Untitled Diagram](https://github.com/FEUP-LDTS-2023/project-l09gr04/assets/116876603/ceeae55c-1010-416d-ac6b-11b79d0748d0)
-
-
+![UML](assets/LDTS_GAME.drawio.jpeg)
+*<div alingn=="center">Fig9. Credits</div>*
 
 
 ### IMPLEMENTED FEATURES
