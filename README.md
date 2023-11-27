@@ -32,8 +32,8 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 
 
 ### UML Diagram
-file:///home/magui/Downloads/LDTS_GAME.drawio.png
-ig9. UML Diagram</div>*
+![Untitled Diagram](https://github.com/FEUP-LDTS-2023/project-l09gr04/assets/116876603/3b70ce9f-a017-40b2-8a98-4eb0609681cf)
+
 
 
 
