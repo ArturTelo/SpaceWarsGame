@@ -1,4 +1,4 @@
 package org.spacewars.viewer;
 
-public abstract class Viewer {
+public class GameOverViewer {
 }
