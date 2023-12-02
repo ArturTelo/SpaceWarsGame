@@ -6,28 +6,28 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 
 ### Mockups
 
-![Menu](/assets/Menu.png)
+![Menu](assets/Menu.png)
 *<div align="center">Fig1. Menu</div>*
 
-![Gameplay](/assets/gameplay.png)
+![Gameplay](assets/gameplay.png)
 *<div align="center">Fig2. Gameplay</div>*
 
-![Gameplay3](/assets/gameplay3.png)
+![Gameplay3](assets/gameplay3.png)
 *<div align="center">Fig3. Gameplay with two enemy shots</div>*
 
-![Gameplay4](/assets/gameplay4.png)
+![Gameplay4](assets/gameplay4.png)
 *<div align="center">Fig4. Gameplay with enemies and hero movement</div>*
 
-![Gameplay2](/assets/gameplay2.png)
+![Gameplay2](assets/gameplay2.png)
 *<div align="center">Fig5. Gameplay with some enemies killed and a coin dropping</div>*
 
-![Paused](/assets/paused.png)
+![Paused](assets/paused.png)
 *<div align="center">Fig6. Paused game</div>*
 
-![Gameover](/assets/gameover.png)
+![Gameover](assets/gameover.png)
 *<div align="center">Fig7. Game Over</div>*
 
-![Credits](/assets/Credits.png)
+![Credits](assets/Credits.png)
 *<div align="center">Fig8. Credits</div>*
 
 
