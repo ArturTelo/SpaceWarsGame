@@ -1,4 +1,4 @@
-package org.spacewars.gui;
+package pt.up.gui;
 
 public interface Gui {
 }

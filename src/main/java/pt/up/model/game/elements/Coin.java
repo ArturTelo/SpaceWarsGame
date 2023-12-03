@@ -1,4 +1,4 @@
-package org.spacewars.model.game.elements;
+package pt.up.model.game.elements;
 
 public class Coin {
 }

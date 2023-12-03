@@ -1,4 +1,4 @@
-package org.spacewars;
+package pt.up;
 
 public class SpaceWar {
     public static void main(String[] args) {

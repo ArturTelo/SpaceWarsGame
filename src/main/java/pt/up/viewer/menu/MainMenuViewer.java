@@ -1,4 +1,4 @@
-package org.spacewars.viewer.menu;
+package pt.up.viewer.menu;
 
 public class MainMenuViewer {
 }

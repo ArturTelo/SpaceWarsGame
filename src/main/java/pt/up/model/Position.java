@@ -1,4 +1,4 @@
-package org.spacewars.model;
+package pt.up.model;
 
 public class Position {
 }

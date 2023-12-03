@@ -1,4 +1,4 @@
-package org.spacewars.states;
+package pt.up.states;
 
 public class GameState {
 }
