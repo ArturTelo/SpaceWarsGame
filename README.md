@@ -1,10 +1,12 @@
-## LDTS_T09G04 - SPACE WARS
+# LDTS_T09G04 - SPACE WARS
+
+[![jdk][openjdk-image]][openjdk-url]
 
 In this next-gen 2D game, you will be able to play a reimagined space invaders game, you will be able to play solo or local co-op, when playing local co-op both players will share the same screen and keyboard! There will be a lot of different enemies with different characteristics and therefore different difficulty.
 
 This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida Fonseca* (*up202207742@fe.up.pt*) and *Nuno França* (*up2018075530@fe.up.pt*) for LDTS 2023/2024.
 
-### Mockups
+## Mockups
 
 ![Menu](src/main/resources/readme/Menu.png)
 *<div align="center">Fig1. Menu</div>*
@@ -30,18 +32,16 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 ![Credits](src/main/resources/readme/Credits.png)
 *<div align="center">Fig8. Credits</div>*
 
-
-### UML Diagram
+## UML Diagram
 
 ![UML](src/main/resources/uml/LDTS_GAME.drawio.jpeg)
 *<div align="center">Fig9. UML</div>*
 
-
-### IMPLEMENTED FEATURES
+## IMPLEMENTED FEATURES
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
 
-### PLANNED FEATURES
+## PLANNED FEATURES
 
 1. **Player Spaceship:**
    - A controllable spaceship at the bottom of the screen that can move horizontally to evade enemy attacks.
@@ -93,9 +93,9 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 
 These features collectively contribute to an engaging and enjoyable Space Invasors gaming experience.
 
-### DESIGN
+## DESIGN
 
-#### Design patterns
+### Design patterns
 
 For the implementation of our game, we went with three different design patterns:
 
@@ -105,7 +105,6 @@ For the implementation of our game, we went with three different design patterns
 
 - **MVC** - Also known as the Model View Controller Architectural Pattern, this pattern allows to aggregate the game logic and connect the view of the game with all the data/logic and how the inputs are processed.
 
-
 #### THE PLAYER INPUTS SHOULD BEHAVE DIFFERENTLY DEPENDING IF ITS ON MENU STATE OR GAME STATE
 
 **Problem in Context**
@@ -114,26 +113,24 @@ Not having different states for the menu and game creates a lot of conditional l
 
 **The Pattern**
 
-We then applied the State pattern. This patern allows us to represent different states for different interactions. With this pattern we can then switch to a different state depending on the interaction, eliminating the problems associated with unecessary conditional logic.
+We then applied the State pattern. This pattern allows us to represent different states for different interactions. With this pattern we can then switch to a different state depending on the interaction, eliminating the problems associated with unecessary conditional logic.
 
 **Implementation**
 
 The UML Diagram shows how the pattern is currently implemented.
-
-**TODO** Implementation in code.
 
 **Consequences**
 
 The use of the State Pattern in the current design allows the following benefits:
 
 - Different states for different implementations.
-- Reducing the clutter created by unecessary conditonals.
+- Reducing the clutter created by unnecessary conditionals.
 
-#### THE DIFFERENT TYPES OF ENEMIES SHOULD BE COMPOSED INTO MORE COMPLEX AND GLOBAL ENEMY
+### THE DIFFERENT TYPES OF ENEMIES SHOULD BE COMPOSED INTO MORE COMPLEX AND GLOBAL ENEMY
 
 **Problem in Context**
 
-Not having a general class for Enemy, creates an exaggerated and unecessary amount of classes one for each enemy and violates the Open-Closed Principle.
+Not having a general class for Enemy, creates an exaggerated and unnecessary amount of classes one for each enemy and violates the Open-Closed Principle.
 
 **The Pattern**
 
@@ -143,8 +140,6 @@ In order to change that, we applied the Composite Pattern, which allows us to re
 
 The UML Diagram shows how the pattern is currently implemented.
 
-**TODO** Implementation in code.
-
 **Consequences**
 
 The use of the Composite Pattern in the current design allows the following benefits:
@@ -153,11 +148,9 @@ The use of the Composite Pattern in the current design allows the following bene
 - In case we want to add more different types of enemies, it'll be easier.
 - Primitive enemies can be composed into a Enemy more complex.
 
-#### KNOWN CODE SMELLS
+### KNOWN CODE SMELLS
 
 Currently there are no known code smells.
-
-### THERE SHOULD BE A SEPARATION BETWEEN THE VIEW, MODEL AND CONTROLLER 
 
 **Problem in Context**
 
@@ -171,8 +164,6 @@ In order to change that, we applied the MVC Pattern, where the model only repres
 
 The UML Diagram shows how the pattern is currently implemented.
 
-**TODO** Implementation in code.
-
 **Consequences**
 
 The use of the MVC Pattern in the current design allows the following benefits:
@@ -181,7 +172,7 @@ The use of the MVC Pattern in the current design allows the following benefits:
 - Facilitates unit testing as each component.
 - Supports scalability by allowing each component to evolve independently.
 
-#### KNOWN CODE SMELLS
+### KNOWN CODE SMELLS
 
 Currently there are no known code smells.
 
@@ -195,3 +186,6 @@ Currently there are no known code smells.
 - Artur Telo: 33.3(3)%
 - Margarida Fonseca: 33.3(3)%
 - Nuno França: 33.3(3)%
+
+[openjdk-image]: https://img.shields.io/badge/OpenJDK-21.0.1-orange
+[openjdk-url]: https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
