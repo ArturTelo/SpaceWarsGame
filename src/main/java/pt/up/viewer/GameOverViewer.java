@@ -1,4 +1,4 @@
-package org.spacewars.viewer;
+package pt.up.viewer;
 
 public class GameOverViewer {
 }

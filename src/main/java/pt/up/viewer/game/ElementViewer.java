@@ -1,4 +1,4 @@
-package org.spacewars.viewer.game;
+package pt.up.viewer.game;
 
 public interface ElementViewer {
 }

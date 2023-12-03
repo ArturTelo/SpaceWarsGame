@@ -1,4 +1,4 @@
-package org.spacewars.model.game.elements.enemy;
+package pt.up.model.game.elements.enemy;
 
-public class Beta extends Enemy{
+public class Beta extends Enemy {
 }
