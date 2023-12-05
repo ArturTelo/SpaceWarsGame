@@ -187,5 +187,5 @@ Currently there are no known code smells.
 - Margarida Fonseca: 33.3(3)%
 - Nuno França: 33.3(3)%
 
-[openjdk-image]: https://img.shields.io/badge/OpenJDK-21.0.1-orange
+[openjdk-image]: https://img.shields.io/badge/OpenJDK-21.0.1-blue
 [openjdk-url]: https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
