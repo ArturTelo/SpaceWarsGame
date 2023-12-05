@@ -1,8 +1,12 @@
 package pt.up.model.game.elements;
 
-public class Hero {
+public class Hero extends Element{
     private int health = 3;
     private int coins = 0;
+
+    public Hero(int x, int y) {
+        super(x, y);
+    }
 
 
     public void reduceHeroHealth(){
@@ -35,7 +39,7 @@ public class Hero {
 
     // TEST HERO IMPLEMENTED FUNCTIONS
     public static void main(String[] args) {
-        Hero heroi = new Hero();
+        Hero heroi = new Hero(0,5);
         for(int i = 0; i < 6; i++){
             heroi.incrementHeroCoins();
             heroi.checkCoinsToHealth();
@@ -43,7 +47,14 @@ public class Hero {
             System.out.printf("Hero Coins %s\n", coins);
         }
         int health = heroi.getHeroHealth();
-
+        heroi.moveUp();
+        heroi.moveDown();
+        heroi.moveDown();
+        heroi.moveDown();
+        heroi.moveDown();
+        heroi.moveRight();
+        heroi.moveRight();
+        System.out.printf("Hero position x:%s, y:%s\n", heroi.getPosition().getX(), heroi.getPosition().getY());
         System.out.printf("Hero Health %s\n", health);
     }
 
