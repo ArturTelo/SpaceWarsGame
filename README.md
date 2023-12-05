@@ -34,7 +34,7 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 
 ## UML Diagram
 
-![UML](src/main/resources/uml/LDTS_GAME.drawio.jpeg)
+![UML](src/main/resources/uml/UML.png)
 *<div align="center">Fig9. UML</div>*
 
 ## IMPLEMENTED FEATURES
