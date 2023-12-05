@@ -15,17 +15,4 @@ public class Position {
     public int getY(){
         return y;
     }
-
-    public void modeUp(){
-        y-=1;
-    }
-    public void moveDown(){
-        y+=1;
-    }
-    public void moveRight(){
-        x+=1;
-    }
-    public void moveLeft(){
-        x-=1;
-    }
 }
