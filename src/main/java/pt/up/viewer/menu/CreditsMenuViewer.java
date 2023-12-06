@@ -3,20 +3,16 @@ package pt.up.viewer.menu;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
-import pt.up.model.menu.MenuElement;
-import pt.up.model.menu.MenuModel;
-import pt.up.model.menu.MenuOption;
+import pt.up.model.menu.CreditsMenuModel;
 import pt.up.utils.Constants;
 import pt.up.viewer.Viewer;
 
 import java.io.IOException;
 
-public class MainMenuViewer extends Viewer {
-    final MenuModel mainMenuModel;
+public class CreditsMenuViewer extends Viewer {
 
-    public MainMenuViewer(MenuModel model, Screen screen) {
+    public CreditsMenuViewer(CreditsMenuModel model, Screen screen) {
         super(model, screen);
-        this.mainMenuModel = model;
     }
 
     public void drawTitle() {
@@ -55,16 +51,14 @@ public class MainMenuViewer extends Viewer {
     public void draw() throws IOException {
         drawTitle();
         drawSubTitle();
+        graphics.setForegroundColor(TextColor.Factory.fromString(Constants.WHITE));
+        graphics.setBackgroundColor(TextColor.ANSI.CYAN);
+        graphics.putString(1, 1, "<-ESC", SGR.BLINK);
 
-        int y = 25;
-        int i = 0;
-
-        for (MenuElement<MenuOption> menuElement : mainMenuModel.getOptions()) {
-            graphics.setForegroundColor(menuElement.getFillColor());
-            graphics.putString((80 - menuElement.getIdentifier().length()) / 2, y + i * 2, menuElement.getIdentifier(), SGR.BOLD);
-            graphics.setForegroundColor(menuElement.getBorderColor());
-            i++;
-        }
+        graphics.putString(35, 20, "Artur Telo");
+        graphics.putString(35, 22, "Margarida Fonseca");
+        graphics.putString(35, 24, "Nuno França");
+        graphics.putString(5, 35, "You can press ESC to go back to the Main Menu");
         screen.refresh();
     }
 }

@@ -1,6 +1,6 @@
 package pt.up.model.game.elements;
 
-public class Hero extends Element{
+public class Hero extends Element {
     private int health = 3;
     private int coins = 0;
 
@@ -8,16 +8,15 @@ public class Hero extends Element{
         super(x, y);
     }
 
-
-    public void reduceHeroHealth(){
+    public void reduceHeroHealth() {
         health--;
     }
 
-    public void incrementHeroHealth(){
+    public void incrementHeroHealth() {
         health++;
     }
 
-    public int getHeroHealth(){
+    public int getHeroHealth() {
         return health;
     }
 
@@ -25,13 +24,13 @@ public class Hero extends Element{
         return coins;
     }
 
-    public void incrementHeroCoins(){
+    public void incrementHeroCoins() {
         coins++;
     }
 
     //should always increase health? I think its actually better than checking if the max is 3
-    public void checkCoinsToHealth(){
-        if(coins == 5){
+    public void checkCoinsToHealth() {
+        if (coins == 5) {
             coins = 0;
             incrementHeroHealth();
         }
@@ -39,8 +38,8 @@ public class Hero extends Element{
 
     // TEST HERO IMPLEMENTED FUNCTIONS
     public static void main(String[] args) {
-        Hero heroi = new Hero(0,5);
-        for(int i = 0; i < 6; i++){
+        Hero heroi = new Hero(0, 5);
+        for (int i = 0; i < 6; i++) {
             heroi.incrementHeroCoins();
             heroi.checkCoinsToHealth();
             int coins = heroi.getHeroCoins();
@@ -54,7 +53,7 @@ public class Hero extends Element{
         heroi.moveDown();
         heroi.moveRight();
         heroi.moveRight();
-        System.out.printf("Hero position x:%s, y:%s\n", heroi.getPosition().getX(), heroi.getPosition().getY());
+        System.out.printf("Hero Position x:%s, y:%s\n", heroi.getPosition().getX(), heroi.getPosition().getY());
         System.out.printf("Hero Health %s\n", health);
     }
 
