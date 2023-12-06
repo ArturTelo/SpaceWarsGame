@@ -1,7 +1,5 @@
 package pt.up.model.game.elements.enemy;
 
-import pt.up.model.game.elements.Hero;
-
 public class Alpha extends Enemy {
     public Alpha(int x, int y) {
         super(x, y);
@@ -9,7 +7,7 @@ public class Alpha extends Enemy {
 
     // to check if its working
     public static void main(String[] args) {
-        Alpha alpha = new Alpha(0,5);
+        Alpha alpha = new Alpha(0, 5);
 
         alpha.setHealth(10);
         alpha.setPoints(30);
