@@ -4,10 +4,12 @@ import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
 import pt.up.model.menu.HighScoreMenuModel;
+import pt.up.model.menu.Player;
 import pt.up.utils.Constants;
 import pt.up.viewer.Viewer;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HighScoresMenuViewer extends Viewer {
 
@@ -55,6 +57,19 @@ public class HighScoresMenuViewer extends Viewer {
         graphics.setBackgroundColor(TextColor.ANSI.CYAN);
         graphics.putString(1, 1, "<-ESC", SGR.BLINK);
         graphics.putString(5, 35, "You can press ESC to go back to the Main Menu");
+
+        HighScoreMenuModel model = new HighScoreMenuModel();
+        model.readScores();
+        List<Player> topPlayers = model.getTopPlayers(5);
+        int place = 1;
+        int ite = 0;
+        for(Player player : topPlayers){
+            String line = place + ". " + player.getName() + " " + player.getScore();
+            graphics.putString(30, 20+ite, line, SGR.BOLD);
+            ite += 2;
+            place++;
+        }
+
         screen.refresh();
     }
 }
