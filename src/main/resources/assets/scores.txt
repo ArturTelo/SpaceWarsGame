@@ -1,6 +1,8 @@
-score name
-1040  Nuno
-640   Roberto
-570   Joaquim
-600   Ana
-800   Joana
+1040 Nuno
+640 Roberto
+570 Joaquim
+600 Ana
+800 Joana
+660 Joao
+890 Leandro
+970 Leonardo
