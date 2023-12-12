@@ -1,7 +1,9 @@
 package pt.up.model.game.elements;
 
+import pt.up.model.Position;
+
 public class HeroShoot extends Hero {
-    public HeroShoot(int x, int y) {
-        super(x, y);
+    public HeroShoot(Position position) {
+        super(position);
     }
 }

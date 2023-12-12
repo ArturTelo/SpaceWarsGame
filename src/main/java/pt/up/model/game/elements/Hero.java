@@ -1,12 +1,25 @@
 package pt.up.model.game.elements;
 
+import pt.up.model.Position;
+import pt.up.viewer.game.map.Map;
+
 public class Hero extends Element {
+    private int score;
+    private Map map;
     private int health = 3;
     private int coins = 0;
 
-    public Hero(int x, int y) {
-        super(x, y);
+    public Hero(Position position) {
+        super(position.getX(), position.getY());
+
+        score = 0;
     }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public int getScore(){return score;}
 
     public void reduceHeroHealth() {
         health--;
@@ -38,7 +51,7 @@ public class Hero extends Element {
 
     // TEST HERO IMPLEMENTED FUNCTIONS
     public static void main(String[] args) {
-        Hero heroi = new Hero(0, 5);
+        Hero heroi = new Hero(new Position(0, 5));
         for (int i = 0; i < 6; i++) {
             heroi.incrementHeroCoins();
             heroi.checkCoinsToHealth();

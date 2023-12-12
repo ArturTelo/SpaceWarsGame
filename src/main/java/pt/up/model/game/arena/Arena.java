@@ -6,6 +6,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import pt.up.model.Position;
 import pt.up.model.game.elements.*;
 import pt.up.model.game.elements.enemy.*;
 
@@ -66,7 +67,7 @@ public class Arena {
     }
 
     public void setHero(){
-        Hero hero = new Hero(15,15);
+        Hero hero = new Hero(new Position(15,15));
         this.hero = hero;
     }
 
