@@ -20,7 +20,7 @@ public class Music {
     public Clip loadSound(String sound) throws NullPointerException {
         try {
             String rootPath = new File(System.getProperty("user.dir")).getPath();
-            String musicPath = rootPath + "/src/main/resources/musics" + sound;
+            String musicPath = rootPath + "/src/main/resources/sounds/" + sound;
             File musicFile = new File(musicPath);
 
             AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
