@@ -7,7 +7,11 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 import com.googlecode.lanterna.terminal.swing.TerminalEmulatorAutoCloseTrigger;
+
+import java.awt.*;
 
 public class LanGui implements Gui {
     private Screen screen;
@@ -15,7 +19,24 @@ public class LanGui implements Gui {
 
     @Override
     public void createScreenGame(Integer width, Integer height) {
+        try {
+            Font font = new Font(Font.MONOSPACED, Font.PLAIN, 2);
+            AWTTerminalFontConfiguration cfg = new SwingTerminalFontConfiguration(true, AWTTerminalFontConfiguration.BoldMode.NOTHING, font);
+            Terminal terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(width, height)).setTerminalEmulatorFontConfiguration(cfg).createTerminal();
 
+            screen = new TerminalScreen(terminal);
+            screen.setCursorPosition(null);
+            screen.startScreen();
+            screen.doResizeIfNecessary();
+            graphics = screen.newTextGraphics();
+
+            TextGraphics textGraphics = screen.newTextGraphics();
+
+            textGraphics.setBackgroundColor(TextColor.ANSI.CYAN);
+            textGraphics.fill(' ');
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     @Override
