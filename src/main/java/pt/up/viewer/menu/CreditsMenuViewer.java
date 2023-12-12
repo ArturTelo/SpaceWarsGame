@@ -55,9 +55,9 @@ public class CreditsMenuViewer extends Viewer {
         graphics.setBackgroundColor(TextColor.ANSI.CYAN);
         graphics.putString(1, 1, "<-ESC", SGR.BLINK);
 
-        graphics.putString(35, 20, "Artur Telo");
-        graphics.putString(35, 22, "Margarida Fonseca");
-        graphics.putString(35, 24, "Nuno França");
+        graphics.putString(30, 20, "Artur Telo");
+        graphics.putString(30, 22, "Margarida Fonseca");
+        graphics.putString(30, 24, "Nuno França");
         graphics.putString(5, 35, "You can press ESC to go back to the Main Menu");
         screen.refresh();
     }
