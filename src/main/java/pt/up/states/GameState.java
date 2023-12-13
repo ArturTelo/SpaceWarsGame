@@ -1,15 +1,10 @@
 package pt.up.states;
 
-
 import pt.up.controller.Controller;
-import pt.up.controller.game.GameController;
 import pt.up.controller.game.SpaceController;
-import pt.up.gui.GUI;
 import pt.up.model.game.space.Space;
 import pt.up.viewer.Viewer;
 import pt.up.viewer.game.GameViewer;
-
-import java.io.IOException;
 
 public class GameState extends State<Space> {
     public GameState(Space arena) {
@@ -22,6 +17,8 @@ public class GameState extends State<Space> {
     }
 
     @Override
-    protected Controller<Space> getController() {return new SpaceController(getModel()); }
+    protected Controller<Space> getController() {
+        return new SpaceController(getModel());
+    }
 }
 
