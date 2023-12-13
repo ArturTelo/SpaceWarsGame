@@ -132,14 +132,17 @@ public class Space {
     //Ver se os tiros colidem
     public boolean colidealphas(Position position) {
         for (Alpha alpha : alphas)
-            if (alpha.getPosition().equals(position))
+            if (alpha.getPosition().equals(position)){
+                alpha.reduceHealth();
                 return true;
+            }
         return false;
     }
 
     public boolean collideAlphas(Position position) {
         for (Alpha alpha : alphas) {
             if (alpha.getPosition().equals(position)) {
+                alpha.reduceHealth();
                 return true;
             }
         }
@@ -149,6 +152,7 @@ public class Space {
     public boolean collideGammas(Position position) {
         for (Gamma gamma : gammas) {
             if (gamma.getPosition().equals(position)) {
+                gamma.reduceHealth();
                 return true;
             }
         }
@@ -167,6 +171,7 @@ public class Space {
     public boolean collideBetas(Position position) {
         for (Beta beta : betas) {
             if (beta.getPosition().equals(position)) {
+                beta.reduceHealth();
                 return true;
             }
         }
