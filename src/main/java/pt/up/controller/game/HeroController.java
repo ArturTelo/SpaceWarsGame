@@ -26,7 +26,7 @@ public class HeroController extends GameController {
     public void createHeroShoot(){
         if(!getModel().getHero().getIsShooting())
         {
-            getModel().setHeroShot(new HeroShot(getModel().getHero().getPosition().getX(),getModel().getHero().getPosition().getX()));
+            getModel().setHeroShot(new HeroShot(getModel().getHero().getPosition().getX(),getModel().getHero().getPosition().getY()));
             getModel().getHero().createShot();
         }
     }
