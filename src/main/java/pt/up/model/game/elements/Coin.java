@@ -1,6 +1,6 @@
 package pt.up.model.game.elements;
 
-public class Coin extends Element {
+public class Coin extends Element{
     public Coin(int x, int y) {
         super(x, y);
     }

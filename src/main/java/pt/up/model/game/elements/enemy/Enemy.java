@@ -7,8 +7,8 @@ public class Enemy extends Element {
         super(x, y);
     }
 
-    private int health;
-    private int points;
+    public int health;
+    public int points;
 
     public void setHealth(int health) {
         this.health = health;

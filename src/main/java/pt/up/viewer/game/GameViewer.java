@@ -1,49 +1,39 @@
 package pt.up.viewer.game;
 
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
-import pt.up.model.game.elements.GameModel;
+import java.util.List;
+
+import pt.up.gui.GUI;
+import pt.up.model.Position;
+import pt.up.model.game.elements.Barrier;
+import pt.up.model.game.elements.Element;
+import pt.up.model.game.space.Space;
 import pt.up.viewer.Viewer;
 
-import java.io.IOException;
-
-public class GameViewer extends Viewer<GameModel> {
-    private HeroViewer heroViewer;
-    private final GameModel gameModel;
-    private ScoreView scoreView;
-    private LiveView livesView;
-
-    private void create() {
-        heroViewer = new HeroViewer(gameModel.getMap().getHero(), graphics);
-        scoreView = new ScoreView(gameModel.getMap().getHero(), graphics);
-        livesView = new LiveView(gameModel.getMap().getHero(), graphics);
-    }
-
-    public GameViewer(GameModel gameModel, Screen screen) {
-        super(gameModel, screen);
-        this.gameModel = gameModel;
-
-        create();
-    }
-
-    public GameViewer(GameModel gameModel, Screen screen, TextGraphics graphics) {
-        super(gameModel, screen);
-        this.gameModel = gameModel;
-        this.graphics = graphics;
-
-        create();
+public class GameViewer extends Viewer<Space> {
+    public GameViewer(Space space) {
+        super(space);
     }
 
     @Override
-    public void draw() throws IOException {
-        graphics.setBackgroundColor(TextColor.ANSI.CYAN);
+    public void drawElements(GUI gui) {
+        drawElements(gui, getModel().getWalls(), new WallViewer());
+        drawElement(gui, getModel().getHero(), new HeroViewer());
+        //drawElement(gui,getModel().getCoin(),new CoinViewer());
+        drawElements(gui,getModel().getAlphas(), new AlphaViewer());
+        drawElements(gui, getModel().getBetas(), new BetaViewer());
+        drawElements(gui,getModel().getGammas(),new GammaViewer());
+        drawElements(gui, getModel().getLives(), new LivesViewer());
+        drawElements(gui, getModel().getCeiGro(), new CeiGrouViewer());
+        drawElements(gui, getModel().getBarriers(), new BarrierViewer());
+        /*gui.drawText(new Position(0, 0), "Energy: " + getModel().getHero().getHeroHealth(), "#FFD700");*/
+    }
 
-        scoreView.draw();
-        livesView.draw();
+    private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
+        for (T element : elements)
+            drawElement(gui, element, viewer);
+    }
 
-        heroViewer.draw();
-
-        getScreen().refresh(Screen.RefreshType.AUTOMATIC);
+    private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
+        viewer.draw(element, gui);
     }
 }
