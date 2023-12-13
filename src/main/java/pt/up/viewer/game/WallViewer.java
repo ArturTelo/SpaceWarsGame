@@ -1,6 +1,5 @@
 package pt.up.viewer.game;
 
-
 import pt.up.gui.GUI;
 import pt.up.model.game.elements.Wall;
 

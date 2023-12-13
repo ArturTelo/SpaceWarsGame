@@ -98,7 +98,7 @@ public class SpaceLoader extends SpaceFactory {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'B') barriers .add(new Barrier(x, y));
+                if (line.charAt(x) == 'B') barriers.add(new Barrier(x, y));
         }
         return barriers;
     }
@@ -137,7 +137,4 @@ public class SpaceLoader extends SpaceFactory {
         }
         return null;
     }
-
-
-
 }

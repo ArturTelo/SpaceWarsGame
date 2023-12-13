@@ -7,7 +7,7 @@ import pt.up.model.game.elements.enemy.Gamma;
 
 import java.util.List;
 
-public abstract class SpaceFactory{
+public abstract class SpaceFactory {
     public Space createSpace() {
         Space space = new Space(getWidth(), getHeight());
 
@@ -20,6 +20,7 @@ public abstract class SpaceFactory{
         space.setWalls(createWalls());
         space.setBarriers(createBarriers());
         space.setCeiGro(createCeiGro());
+
         return space;
     }
 
@@ -28,12 +29,19 @@ public abstract class SpaceFactory{
     protected abstract int getHeight();
 
     protected abstract List<Wall> createWalls();
+
     protected abstract List<Alpha> createAlphas();
+
     protected abstract List<Gamma> createGammas();
+
     protected abstract List<Beta> createBetas();
+
     protected abstract List<Barrier> createBarriers();
+
     protected abstract List<CelGro> createCeiGro();
+
     protected abstract List<Lives> createLives();
+
     protected abstract Hero createHero();
-    
+
 }

@@ -1,27 +1,24 @@
 package pt.up;
 
-
-
 import pt.up.gui.LanternaGUI;
 import pt.up.model.menu.MainMenu;
 import pt.up.states.MainMenuState;
 import pt.up.states.State;
+import pt.up.utils.Constants;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+
+import static java.lang.System.exit;
 
 public class Space {
     private final LanternaGUI gui;
     private State state;
 
     public Space() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(80, 40);
+        this.gui = new LanternaGUI(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         this.state = new MainMenuState(new MainMenu());
-    }
-
-    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
-        new Space().start();
     }
 
     public void setState(State state) {
@@ -47,5 +44,10 @@ public class Space {
         }
 
         gui.close();
+        exit(0);
+    }
+
+    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
+        new Space().start();
     }
 }

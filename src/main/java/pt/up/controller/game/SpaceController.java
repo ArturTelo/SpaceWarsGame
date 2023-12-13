@@ -1,7 +1,7 @@
 package pt.up.controller.game;
 
-import pt.up.model.game.space.Space;
 import pt.up.gui.GUI;
+import pt.up.model.game.space.Space;
 import pt.up.model.menu.MainMenu;
 import pt.up.states.MainMenuState;
 
@@ -46,6 +46,4 @@ public class SpaceController extends GameController {
             gammaController.step(game,action,time);
         }
     }
-
-
 }

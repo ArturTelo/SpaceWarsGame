@@ -1,5 +1,6 @@
 package pt.up.gui;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -20,6 +21,7 @@ import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
+    protected TextGraphics graphics;
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
@@ -33,11 +35,15 @@ public class LanternaGUI implements GUI {
 
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
+
         screen = new TerminalScreen(terminal);
 
         screen.setCursorPosition(null);
         screen.startScreen();
         screen.doResizeIfNecessary();
+
+        graphics = screen.newTextGraphics();
+
         return screen;
     }
 
@@ -48,11 +54,12 @@ public class LanternaGUI implements GUI {
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
+
         return terminal;
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        URL resource = getClass().getClassLoader().getResource("fonts/main.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -77,6 +84,7 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
 
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
+        if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESC;
 
         return ACTION.NONE;
     }
@@ -124,23 +132,54 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawCoin(Position position) {
         drawCharacter(position.getX(), position.getY(), 'C', "#FFFFFF");
-
     }
+
     @Override
     public void drawLive(Position position) {
         drawCharacter(position.getX(), position.getY(), 'L', "#FFFFFF");
-
     }
+
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.ANSI.CYAN);
         tg.putString(position.getX(), position.getY(), text);
+    }
+
+    @Override
+    public void drawBackground() {
+        TextGraphics textGraphics = screen.newTextGraphics();
+
+        textGraphics.setBackgroundColor(TextColor.ANSI.CYAN);
+        textGraphics.fill(' ');
+    }
+
+    @Override
+    public void drawString(int col, int row, String text, TextColor foregroundColor, TextColor backgroundColor) {
+        graphics.setForegroundColor(foregroundColor);
+        graphics.setBackgroundColor(backgroundColor);
+
+        graphics.putString(col, row, text);
+    }
+
+    @Override
+    public void drawEscString(int col, int row, String text, TextColor foregroundColor, TextColor backgroundColor, SGR sgr) {
+        graphics.setForegroundColor(foregroundColor);
+        graphics.setBackgroundColor(backgroundColor);
+
+        graphics.putString(col, row, text, sgr);
+    }
+
+    @Override
+    public TextGraphics getGraphics() {
+        return graphics;
     }
 
     private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.ANSI.CYAN);
         tg.putString(x, y + 1, "" + c);
     }
 

@@ -1,15 +1,18 @@
 package pt.up.viewer.menu;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import pt.up.gui.GUI;
-import pt.up.model.Position;
-import pt.up.model.menu.MainMenu;
+import pt.up.model.menu.HighScoresMenu;
+import pt.up.model.menu.Player;
 import pt.up.utils.Constants;
 import pt.up.viewer.Viewer;
 
-public class MenuViewer extends Viewer<MainMenu> {
+import java.util.List;
 
-    public MenuViewer(MainMenu menu) {
+public class HighScoresViewer extends Viewer<HighScoresMenu> {
+
+    public HighScoresViewer(HighScoresMenu menu) {
         super(menu);
     }
 
@@ -41,22 +44,30 @@ public class MenuViewer extends Viewer<MainMenu> {
         gui.drawString(12, 13, w5, TextColor.Factory.fromString(Constants.YELLOW), TextColor.ANSI.CYAN);
     }
 
-    public void drawOptions(GUI gui) {
-        int y = 25;
+    public void drawDescription(GUI gui) {
+        gui.drawEscString(1, 1, "<-ESC", TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN, SGR.BLINK);
 
-        for (int i = 0; i < getModel().getNumberEntries(); i++) {
-            gui.drawText(
-                    new Position((80 - getModel().getEntry(i).length()) / 2, y + i * 2),
-                    getModel().getEntry(i),
-                    getModel().isSelected(i) ? Constants.YELLOW : Constants.WHITE
-            );
+        HighScoresMenu model = new HighScoresMenu();
+        model.readScores();
+
+        List<Player> topPlayers = model.getTopPlayers(5);
+        int place = 1;
+        int ite = 0;
+
+        for(Player player : topPlayers){
+            String line = place + ". " + player.getName() + " " + player.getScore();
+            gui.drawString(30, 17 + ite, line, TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
+            ite += 2;
+            place++;
         }
+
+        gui.drawString(5, 30, "You can press ESC to go back to the Main Menu", TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
     }
 
     @Override
     public void drawElements(GUI gui) {
         drawTitle(gui);
         drawSubTitle(gui);
-        drawOptions(gui);
+        drawDescription(gui);
     }
 }

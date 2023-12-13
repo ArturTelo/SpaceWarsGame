@@ -1,5 +1,7 @@
 package pt.up.model.menu;
 
+import pt.up.utils.Configuration;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,17 +10,24 @@ public class MainMenu {
     private int currentEntry = 0;
 
     public MainMenu() {
-        this.entries = Arrays.asList("PLAY","HIGHSCORE","SCORE","EXIT");
+        this.entries = Arrays.asList("PLAY", "HIGHSCORES", "CREDITS", "EXIT");
+
+        if (!Configuration.getInstance().getMenuMusic().isPlaying()) {
+            Configuration.getInstance().stopAllMusic();
+            Configuration.getInstance().getMenuMusic().start();
+        }
     }
 
     public void nextEntry() {
         currentEntry++;
+
         if (currentEntry > this.entries.size() - 1)
             currentEntry = 0;
     }
 
     public void previousEntry() {
         currentEntry--;
+
         if (currentEntry < 0)
             currentEntry = this.entries.size() - 1;
     }
@@ -34,10 +43,15 @@ public class MainMenu {
     public boolean isSelectedPlay() {
         return isSelected(0);
     }
-    public boolean isSelectedHS() {return isSelected(1);}
-    public boolean isSelectedScore() {
+
+    public boolean isSelectedHighScore() {
+        return isSelected(1);
+    }
+
+    public boolean isSelectedCredits() {
         return isSelected(2);
     }
+
     public boolean isSelectedExit() {
         return isSelected(3);
     }
