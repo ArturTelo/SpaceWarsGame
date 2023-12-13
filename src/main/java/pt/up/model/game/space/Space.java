@@ -12,6 +12,8 @@ import java.util.List;
 public class Space {
     private final int width;
     private final int height;
+
+    private HeroShot heroShot;
     private Hero hero;
     private Coin coin;
     private List<Lives> lives;
@@ -41,6 +43,14 @@ public class Space {
 
     public void setHero(Hero hero) {
         this.hero = hero;
+    }
+
+    public void setHeroShot(HeroShot heroShot) {
+        int x = hero.getPosition().getX();
+        int y = hero.getPosition().getY();
+        Position position = new Position(x,y);
+        heroShot.setPosition(position);
+        this.heroShot = heroShot;
     }
 
     public List<Alpha> getAlphas() {
@@ -77,6 +87,10 @@ public class Space {
 
     public Hero getHero() {
         return hero;
+    }
+
+    public HeroShot getHeroShot() {
+        return heroShot;
     }
 
     public void setLives(List<Lives> lives) {

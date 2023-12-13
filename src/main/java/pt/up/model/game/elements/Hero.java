@@ -5,6 +5,9 @@ public class Hero extends Element {
     private int coins;
     private int score;
 
+    private boolean isShooting = false;
+
+
     public Hero(int x, int y) {
         super(x, y);
         this.health = 3;
@@ -17,6 +20,18 @@ public class Hero extends Element {
 
     public void incrementHeroHealth() {
         health++;
+    }
+
+    public boolean getIsShooting(){
+        return this.isShooting;
+    }
+
+    public void createShot(){
+        this.isShooting = true;
+    }
+
+    public void delShot(){
+        this.isShooting = false;
     }
 
     public int getHeroHealth() {

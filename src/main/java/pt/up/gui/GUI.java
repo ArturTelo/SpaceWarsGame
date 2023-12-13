@@ -11,7 +11,7 @@ public interface GUI {
     ACTION getNextAction() throws IOException;
 
     void drawHero(Position position);
-
+    void drawHeroShot(Position position);
     void drawAlpha(Position position);
 
     void drawGamma(Position position);
