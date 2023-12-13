@@ -12,6 +12,7 @@ public abstract class SpaceFactory {
         Space space = new Space(getWidth(), getHeight());
 
         space.setHero(createHero());
+        space.setHeroShot(createHeroShot());
         space.setHero(createHero());
         space.setAlphas(createAlphas());
         space.setBetas(createBetas());
@@ -43,5 +44,7 @@ public abstract class SpaceFactory {
     protected abstract List<Lives> createLives();
 
     protected abstract Hero createHero();
+
+    protected abstract HeroShot createHeroShot();
 
 }

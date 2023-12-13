@@ -83,6 +83,7 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
 
+        if (keyStroke.getKeyType() == KeyType.Backspace) return ACTION.SHOOT;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
         if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESC;
 
@@ -92,6 +93,11 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawAlpha(Position position) {
         drawCharacter(position.getX(), position.getY(), 'A', "#FFFFFF");
+    }
+
+    @Override
+    public void drawHeroShot(Position position){
+        drawCharacter(position.getX(), position.getY(), 'I', "#FFFFFF");
     }
 
     @Override
