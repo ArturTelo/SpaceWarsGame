@@ -7,6 +7,7 @@ import pt.up.model.game.elements.enemy.Beta;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.utils.Configuration;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class Space {
@@ -129,20 +130,17 @@ public class Space {
         return true;
     }
 
-    //Ver se os tiros colidem
-    public boolean colidealphas(Position position) {
-        for (Alpha alpha : alphas)
-            if (alpha.getPosition().equals(position)){
-                alpha.reduceHealth();
-                return true;
-            }
-        return false;
-    }
-
     public boolean collideAlphas(Position position) {
-        for (Alpha alpha : alphas) {
+        Iterator<Alpha> iterator = alphas.iterator();
+
+        while (iterator.hasNext()) {
+            Alpha alpha = iterator.next();
+
             if (alpha.getPosition().equals(position)) {
                 alpha.reduceHealth();
+                if (alpha.getHealth() == 0) {
+                    iterator.remove();
+                }
                 return true;
             }
         }
@@ -150,9 +148,16 @@ public class Space {
     }
 
     public boolean collideGammas(Position position) {
-        for (Gamma gamma : gammas) {
+        Iterator<Gamma> iterator = gammas.iterator();
+
+        while (iterator.hasNext()) {
+            Gamma gamma = iterator.next();
+
             if (gamma.getPosition().equals(position)) {
                 gamma.reduceHealth();
+                if (gamma.getHealth() == 0) {
+                    iterator.remove();
+                }
                 return true;
             }
         }
@@ -169,9 +174,17 @@ public class Space {
     }
 
     public boolean collideBetas(Position position) {
-        for (Beta beta : betas) {
+
+        Iterator<Beta> iterator = betas.iterator();
+
+        while (iterator.hasNext()) {
+            Beta beta = iterator.next();
+
             if (beta.getPosition().equals(position)) {
                 beta.reduceHealth();
+                if (beta.getHealth() == 0) {
+                    iterator.remove();
+                }
                 return true;
             }
         }
