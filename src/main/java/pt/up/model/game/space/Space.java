@@ -46,10 +46,6 @@ public class Space {
     }
 
     public void setHeroShot(HeroShot heroShot) {
-        int x = hero.getPosition().getX();
-        int y = hero.getPosition().getY();
-        Position position = new Position(x,y);
-        heroShot.setPosition(position);
         this.heroShot = heroShot;
     }
 
