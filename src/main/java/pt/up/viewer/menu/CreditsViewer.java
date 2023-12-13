@@ -1,15 +1,15 @@
 package pt.up.viewer.menu;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import pt.up.gui.GUI;
-import pt.up.model.Position;
-import pt.up.model.menu.MainMenu;
+import pt.up.model.menu.CreditsMenu;
 import pt.up.utils.Constants;
 import pt.up.viewer.Viewer;
 
-public class MenuViewer extends Viewer<MainMenu> {
+public class CreditsViewer extends Viewer<CreditsMenu> {
 
-    public MenuViewer(MainMenu menu) {
+    public CreditsViewer(CreditsMenu menu) {
         super(menu);
     }
 
@@ -41,22 +41,19 @@ public class MenuViewer extends Viewer<MainMenu> {
         gui.drawString(12, 13, w5, TextColor.Factory.fromString(Constants.YELLOW), TextColor.ANSI.CYAN);
     }
 
-    public void drawOptions(GUI gui) {
-        int y = 25;
+    public void drawDescription(GUI gui) {
+        gui.drawEscString(1, 1, "<-ESC", TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN, SGR.BLINK);
 
-        for (int i = 0; i < getModel().getNumberEntries(); i++) {
-            gui.drawText(
-                    new Position((80 - getModel().getEntry(i).length()) / 2, y + i * 2),
-                    getModel().getEntry(i),
-                    getModel().isSelected(i) ? Constants.YELLOW : Constants.WHITE
-            );
-        }
+        gui.drawString(30, 20, "Artur Telo", TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
+        gui.drawString(30, 22, "Margarida Fonseca", TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
+        gui.drawString(30, 24, "Nuno França", TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
+        gui.drawString(5, 30, "You can press ESC to go back to the Main Menu", TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
     }
 
     @Override
     public void drawElements(GUI gui) {
         drawTitle(gui);
         drawSubTitle(gui);
-        drawOptions(gui);
+        drawDescription(gui);
     }
 }
