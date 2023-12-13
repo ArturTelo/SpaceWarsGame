@@ -3,8 +3,8 @@ package pt.up.utils;
 public class Constants {
 
     // GAME SCREEN
-    public static final int GAME_SCREEN_WIDTH = 800;
-    public static final int GAME_SCREEN_HEIGHT = 380;
+    public static final int GAME_SCREEN_WIDTH = 80;
+    public static final int GAME_SCREEN_HEIGHT = 60;
 
     //MENU SCREEN
     public static final int MENU_SCREEN_WIDTH = 80;
