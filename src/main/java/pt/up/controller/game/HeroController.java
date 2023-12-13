@@ -53,6 +53,19 @@ public class HeroController extends GameController {
         if(getModel().getHero().getIsShooting())
         {
             moveHeroShootY();
+            Position position = getModel().getHeroShot().getPosition();
+            if(getModel().colidealphas(position)){
+                getModel().getHero().delShot();
+            }
+            if(getModel().collideAlphas(position)){
+                getModel().getHero().delShot();
+            }
+            if(getModel().collideGammas(position)){
+                getModel().getHero().delShot();
+            }
+            if(getModel().collideBetas(position)){
+                getModel().getHero().delShot();
+            }//fica uma javardice mas é necessario
             if(getModel().getHeroShot().getPosition().getY() < 1)
             {
                 getModel().getHero().delShot();
