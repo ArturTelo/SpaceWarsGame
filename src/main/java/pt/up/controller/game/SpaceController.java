@@ -41,10 +41,13 @@ public class SpaceController extends GameController {
         this.coinController= new CoinController(Space);*/
     }
 
+
     public void step(pt.up.Space game, GUI.ACTION action, long time) throws IOException {
+        boolean winningCondition = getModel().getAlphas().isEmpty() && getModel().getBetas().isEmpty() &&
+                getModel().getGammas().isEmpty() && getModel().getDeltas().isEmpty();
         if (action == GUI.ACTION.QUIT)
             game.setState(new MainMenuState(new MainMenu()));
-        else if(getModel().getHero().getHeroHealth() == 0){
+        else if(getModel().getHero().getHeroHealth() == 0 || winningCondition){
             game.setState(new GameOverState(new GameOver()));
         }
         else {
