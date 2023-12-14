@@ -49,6 +49,8 @@ public class SpaceController extends GameController {
             game.setState(new MainMenuState(new MainMenu()));
         else if(getModel().getHero().getHeroHealth() == 0 || winningCondition){
             game.setState(new GameOverState(new GameOver()));
+            GameOver gameOverModel = new GameOver();
+            gameOverModel.writeScore(GameOver.generateRandomString(),getModel().getHero().getScore());
         }
         else {
             heroController.step(game, action, time);
