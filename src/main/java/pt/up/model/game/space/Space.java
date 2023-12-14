@@ -2,11 +2,7 @@ package pt.up.model.game.space;
 
 import pt.up.model.Position;
 import pt.up.model.game.elements.*;
-import pt.up.model.game.elements.enemy.Alpha;
-import pt.up.model.game.elements.enemy.Beta;
-import pt.up.model.game.elements.enemy.Delta;
-import pt.up.model.game.elements.enemy.Gamma;
-import pt.up.model.game.elements.enemy.Boss;
+import pt.up.model.game.elements.enemy.*;
 import pt.up.utils.Configuration;
 
 import java.util.Iterator;
@@ -17,6 +13,7 @@ public class Space {
     private final int height;
 
     private HeroShot heroShot;
+    private BossShot bossShot;
     private Hero hero;
     private Coin coin;
     private Boss boss;
@@ -50,6 +47,10 @@ public class Space {
 
     public void setHeroShot(HeroShot heroShot) {
         this.heroShot = heroShot;
+    }
+
+    public void setBossShot(BossShot bossShot){
+        this.bossShot = bossShot;
     }
 
     public List<Alpha> getAlphas() {
@@ -96,6 +97,10 @@ public class Space {
     public HeroShot getHeroShot() {
         return heroShot;
     }
+    public BossShot getBossShot() {
+        return bossShot;
+    }
+
     public void setDeltas(List<Delta> deltas){this.deltas=deltas;}
 
     public void setLives(List<Lives> lives) {

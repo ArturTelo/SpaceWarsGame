@@ -34,6 +34,7 @@ public interface GUI {
     void drawText(Position position, String text, String color);
 
     void drawBackground();
+    void drawBossShot(Position position);
 
     void drawString(int col, int row, String text, TextColor foregroundColor, TextColor backgroundColor);
 

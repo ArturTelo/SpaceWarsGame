@@ -1,17 +1,34 @@
 package pt.up.controller.game;
 
 import pt.up.gui.GUI;
+import java.util.Random;
 import pt.up.model.Position;
-import pt.up.model.game.elements.enemy.Beta;
-import pt.up.model.game.elements.enemy.Boss;
-import pt.up.model.game.elements.enemy.Delta;
-import pt.up.model.game.elements.enemy.Gamma;
+
+import pt.up.model.game.elements.enemy.*;
 import pt.up.model.game.space.Space;
 
 import java.io.IOException;
 
 public class BossController extends GameController{
     private long lastMovement;
+
+    public void moveBossShotY(){
+        moveBossShot(getModel().getBossShot().getPosition().getDown());
+    }
+
+    public void createBossShot(){
+        if(!getModel().getBoss().getIsShooting())
+        {
+            getModel().setBossShot(new BossShot(getModel().getBoss().getPosition().getX(),getModel().getBoss().getPosition().getY()));
+            getModel().getBoss().createShot();
+        }
+    }
+    private void moveBossShot(Position position) {
+        if (getModel().isEmpty(position)) {
+            getModel().getBossShot().setPosition(position);
+            //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
+        }
+    }
 
     public BossController(Space space) {
         super(space);
@@ -37,6 +54,20 @@ public class BossController extends GameController{
         }
         if(countpositions==78){countpositions=0;}
         chagedirection();
+
+        Random random = new Random();
+        if(random.nextInt(100)==3){
+            createBossShot();
+        }
+        if(getModel().getBoss().getIsShooting()) {
+            moveBossShotY();
+            Position position = getModel().getBossShot().getPosition();
+            if(getModel().getBossShot().getPosition().getY() > 32)
+            {
+                getModel().getBoss().delShot();
+            }
+        }
+
     }
 
     private void move(Boss element, Position position) {
