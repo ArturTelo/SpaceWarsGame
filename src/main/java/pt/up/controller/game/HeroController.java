@@ -26,7 +26,7 @@ public class HeroController extends GameController {
     public void createHeroShoot(){
         if(!getModel().getHero().getIsShooting())
         {
-            getModel().setHeroShot(new HeroShot(getModel().getHero().getPosition().getX(),getModel().getHero().getPosition().getX()));
+            getModel().setHeroShot(new HeroShot(getModel().getHero().getPosition().getX(),getModel().getHero().getPosition().getY()));
             getModel().getHero().createShot();
         }
     }
@@ -53,6 +53,16 @@ public class HeroController extends GameController {
         if(getModel().getHero().getIsShooting())
         {
             moveHeroShootY();
+            Position position = getModel().getHeroShot().getPosition();
+            if(getModel().collideAlphas(position)){
+                getModel().getHero().delShot();
+            }
+            if(getModel().collideGammas(position)){
+                getModel().getHero().delShot();
+            }
+            if(getModel().collideBetas(position)){
+                getModel().getHero().delShot();
+            }//fica uma javardice mas é necessario
             if(getModel().getHeroShot().getPosition().getY() < 1)
             {
                 getModel().getHero().delShot();
