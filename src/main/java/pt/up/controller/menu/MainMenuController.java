@@ -5,9 +5,11 @@ import pt.up.controller.Controller;
 import pt.up.gui.GUI;
 import pt.up.model.game.space.SpaceLoader;
 import pt.up.model.menu.CreditsMenu;
+import pt.up.model.menu.GameOver;
 import pt.up.model.menu.HighScoresMenu;
 import pt.up.model.menu.MainMenu;
 import pt.up.states.CreditsMenuState;
+import pt.up.states.GameOverState;
 import pt.up.states.GameState;
 import pt.up.states.HighScoresMenuState;
 

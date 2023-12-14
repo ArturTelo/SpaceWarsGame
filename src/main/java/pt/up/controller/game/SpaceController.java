@@ -2,7 +2,9 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.game.space.Space;
+import pt.up.model.menu.GameOver;
 import pt.up.model.menu.MainMenu;
+import pt.up.states.GameOverState;
 import pt.up.states.MainMenuState;
 
 import java.io.IOException;
@@ -40,8 +42,11 @@ public class SpaceController extends GameController {
     }
 
     public void step(pt.up.Space game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getHero().getHeroHealth() == 0)
+        if (action == GUI.ACTION.QUIT)
             game.setState(new MainMenuState(new MainMenu()));
+        else if(getModel().getHero().getHeroHealth() == 0){
+            game.setState(new GameOverState(new GameOver()));
+        }
         else {
             heroController.step(game, action, time);
             alphaController.step(game, action, time);

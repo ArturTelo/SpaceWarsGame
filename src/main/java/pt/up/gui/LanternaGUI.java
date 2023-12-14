@@ -59,7 +59,7 @@ public class LanternaGUI implements GUI {
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/Spacewars1.ttf");
+        URL resource = getClass().getClassLoader().getResource("fonts/main.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
