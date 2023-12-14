@@ -1,7 +1,7 @@
 package pt.up.model.game.elements;
 
 public class Hero extends Element {
-    private int health;
+    private int health = 3;
     private int coins;
     private int score;
 
@@ -10,7 +10,6 @@ public class Hero extends Element {
 
     public Hero(int x, int y) {
         super(x, y);
-        this.health = 3;
     }
     public int getScore(){return score;}
 
@@ -18,8 +17,8 @@ public class Hero extends Element {
         score += enemyPoints;
     }
 
-    public void reduceHeroHealth() {
-        health--;
+    public void reduceHeroHealth(int po) {
+        health -= po;
     }
 
     public void incrementHeroHealth() {

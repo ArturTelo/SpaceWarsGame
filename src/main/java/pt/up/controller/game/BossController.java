@@ -56,7 +56,7 @@ public class BossController extends GameController{
         chagedirection();
 
         Random random = new Random();
-        if(random.nextInt(100)==3){
+        if(random.nextInt(80)==3){
             createBossShot();
         }
         if(getModel().getBoss().getIsShooting()) {
@@ -64,6 +64,13 @@ public class BossController extends GameController{
             Position position = getModel().getBossShot().getPosition();
             if(getModel().getBossShot().getPosition().getY() > 32)
             {
+                getModel().getBoss().delShot();
+            }
+            if(getModel().collideHero(position)){
+                getModel().getHero().reduceHeroHealth(1);
+                getModel().getBoss().delShot();
+            }
+            if(getModel().collideBarriers(position)){
                 getModel().getBoss().delShot();
             }
         }

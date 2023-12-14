@@ -242,6 +242,14 @@ public class Space {
         return false;
     }
 
+    public boolean colideHero(Position position) {
+        if (hero.getPosition().equals(position)) {
+            getHero().reduceHeroHealth(1);
+            return true;
+        }
+        return false;
+    }
+
     public boolean collideCeiGro(Position position) {
         for (CelGro celGro : ceilingground) {
             if (celGro.getPosition().equals(position)) {
