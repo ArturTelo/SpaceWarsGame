@@ -23,6 +23,7 @@ public class GameViewer extends Viewer<Space> {
 
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElement(gui, hero, new HeroViewer());
+        drawElement(gui, getModel().getBoss(), new BossViewer());
         if(getModel().getHero().getIsShooting())
         drawElement(gui, getModel().getHeroShot(), new HeroShotViewer());
         //drawElement(gui,getModel().getCoin(),new CoinViewer());

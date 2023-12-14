@@ -10,9 +10,6 @@ public class Enemy extends Element {
     public int health;
     public int points;
 
-    public void reduceHealth(){
-        this.health--;
-    }
     public void setHealth(int health) {
         this.health = health;
     }
