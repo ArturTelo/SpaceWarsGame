@@ -4,6 +4,7 @@ package pt.up.controller.game;
 import pt.up.gui.GUI;
 import pt.up.model.Position;
 import pt.up.model.game.elements.enemy.Alpha;
+import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
 
 
@@ -15,39 +16,47 @@ public class AlphaController extends GameController{
             super(space);
             this.lastMovement = 0;
         }
-    private int side=0;  //1 vai para a direita e 0 para a esquerda
-    private boolean change=false; // se houve mudança ou não
+    private int side=1;  //1 vai para a direita e 0 para a esquerda
+    private int countpositions=0;
+    private boolean changed=false;
+    private void chagedirection(){
+        if(side==1 && changed){side=0;}
+        else if(side==0 && changed){side=1;}
+        changed=false;
+    }
     @Override
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
-        change = false;
+        changed=false;
         // 1 vai para a direita e 0 para a esquerda
         if (time - lastMovement > 500) {
-            for (Alpha alpha : getModel().getAlphas())
-                if (side == 0 && change==false) {
-                    moveAlpha(alpha, new Position(alpha.getPosition().getX() - 1, alpha.getPosition().getY()));
-                    this.lastMovement = time;
-                } else if (side == 1&& change==false) {
-                    moveAlpha(alpha, new Position(alpha.getPosition().getX() + 1, alpha.getPosition().getY()));
-                    this.lastMovement = time;
-                } else if (change) {
-                    moveAlpha(alpha, new Position(alpha.getPosition().getX(),alpha.getPosition().getY()+1));
-                }
+            for(Gamma element: getModel().getGammas()){
+                move(element,element.getPosition());
+            }
+            countpositions++;
+        }
+        if(countpositions==57){countpositions=0;}
+        chagedirection();
+    }
+
+    private void move(Gamma element, Position position) {
+        if (countpositions<55){
+            if(side==1){
+                element.setPosition(new Position(element.getPosition().getX()+1, element.getPosition().getY()));
+            }
+            if(side==0){
+               element.setPosition(new Position(element.getPosition().getX()-1 ,element.getPosition().getY()));
+            }
+        }
+        else if (countpositions==56){
+            if(side==1){
+                element.setPosition(new Position(element.getPosition().getX(), element.getPosition().getY()+1));
+                changed=true;
+            }
+            if(side==0){
+                element.setPosition(new Position(element.getPosition().getX() ,element.getPosition().getY()+1));
+                changed=true;
+            }
+        }
         }
     }
 
-    private void moveAlpha(Alpha alpha, Position position) {
-        if (getModel().isEmpty(position)) {
-            alpha.setPosition(position);
-        }
-        else if(side==0){
-            side=1;
-            alpha.setPosition(new Position(position.getX()+1,position.getY()+1));
-            change=true;
-        }
-        else if(side==1) {
-            side = 0;
-            alpha.setPosition(new Position(position.getX()-1, position.getY() + 1));
-            change=true;
-        }
-    }
-}

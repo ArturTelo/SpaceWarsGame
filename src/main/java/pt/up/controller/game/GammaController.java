@@ -10,43 +10,51 @@ import java.io.IOException;
 
 public class GammaController extends GameController{
     private long lastMovement;
+
     public GammaController(Space space) {
         super(space);
         this.lastMovement = 0;
     }
-    private int side=0;  //1 vai para a direita e 0 para a esquerda
-    private boolean change=false; // se houve mudança ou não
+    private int side=1;  //1 vai para a direita e 0 para a esquerda
+    private int countpositions=0;
+    private boolean changed=false;
+    private void chagedirection(){
+        if(side==1 && changed){side=0;}
+        else if(side==0 && changed){side=1;}
+        changed=false;
+    }
     @Override
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
-        change = false;
+        changed=false;
         // 1 vai para a direita e 0 para a esquerda
         if (time - lastMovement > 500) {
-            for (Gamma gamma : getModel().getGammas())
-                if (side == 0 && change==false) {
-                    moveGamma(gamma, new Position(gamma.getPosition().getX() - 1, gamma.getPosition().getY()));
-                    this.lastMovement = time;
-                } else if (side == 1&& change==false) {
-                    moveGamma(gamma, new Position(gamma.getPosition().getX() + 1, gamma.getPosition().getY()));
-                    this.lastMovement = time;
-                } else if (change) {
-                    moveGamma(gamma, new Position(gamma.getPosition().getX(),gamma.getPosition().getY()+1));
-                }
+            for(Gamma gamma: getModel().getGammas()){
+                move(gamma,gamma.getPosition());
+            }
+            countpositions++;
         }
+        if(countpositions==57){countpositions=0;}
+        chagedirection();
     }
 
-    private void moveGamma(Gamma gamma, Position position) {
-        if (getModel().isEmpty(position)) {
-            gamma.setPosition(position);
+    private void move(Gamma gamma, Position position) {
+        if (countpositions<55){
+            if(side==1){
+                gamma.setPosition(new Position(gamma.getPosition().getX()+1, gamma.getPosition().getY()));
+            }
+            if(side==0){
+                gamma.setPosition(new Position(gamma.getPosition().getX()-1 ,gamma.getPosition().getY()));
+            }
         }
-        else if(side==0){
-            side=1;
-            gamma.setPosition(new Position(position.getX()+1,position.getY()+1));
-            change=true;
-        }
-        else if(side==1) {
-            side = 0;
-            gamma.setPosition(new Position(position.getX()-1, position.getY() + 1));
-            change=true;
+        else if (countpositions==56){
+            if(side==1){
+                gamma.setPosition(new Position(gamma.getPosition().getX(), gamma.getPosition().getY()+1));
+                changed=true;
+            }
+            if(side==0){
+                gamma.setPosition(new Position(gamma.getPosition().getX() ,gamma.getPosition().getY()+1));
+                changed=true;
+            }
         }
     }
 }
