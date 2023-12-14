@@ -3,11 +3,13 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
+import pt.up.model.game.elements.Element;
 import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
 
 
+import java.awt.*;
 import java.io.IOException;
 
 public class AlphaController extends GameController{
@@ -29,7 +31,7 @@ public class AlphaController extends GameController{
         changed=false;
         // 1 vai para a direita e 0 para a esquerda
         if (time - lastMovement > 500) {
-            for(Gamma element: getModel().getGammas()){
+            for(Alpha element: getModel().getAlphas()){
                 move(element,element.getPosition());
             }
             countpositions++;
@@ -38,7 +40,7 @@ public class AlphaController extends GameController{
         chagedirection();
     }
 
-    private void move(Gamma element, Position position) {
+    private void move(Alpha element, Position position) {
         if (countpositions<55){
             if(side==1){
                 element.setPosition(new Position(element.getPosition().getX()+1, element.getPosition().getY()));
