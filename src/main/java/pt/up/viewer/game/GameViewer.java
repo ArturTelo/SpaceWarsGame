@@ -25,7 +25,9 @@ public class GameViewer extends Viewer<Space> {
         drawElement(gui, hero, new HeroViewer());
         drawElement(gui, getModel().getBoss(), new BossViewer());
         if(getModel().getHero().getIsShooting())
-        drawElement(gui, getModel().getHeroShot(), new HeroShotViewer());
+            drawElement(gui, getModel().getHeroShot(), new HeroShotViewer());
+        if(getModel().getBoss().getIsShooting())
+            drawElement(gui, getModel().getBossShot(), new BossShotViewer());
         //drawElement(gui,getModel().getCoin(),new CoinViewer());
         drawElements(gui,getModel().getAlphas(), new AlphaViewer());
         drawElements(gui, getModel().getBetas(), new BetaViewer());
