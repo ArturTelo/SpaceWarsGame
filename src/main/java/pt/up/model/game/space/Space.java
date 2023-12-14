@@ -6,6 +6,7 @@ import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
 import pt.up.model.game.elements.enemy.Delta;
 import pt.up.model.game.elements.enemy.Gamma;
+import pt.up.model.game.elements.enemy.Boss;
 import pt.up.utils.Configuration;
 
 import java.util.Iterator;
@@ -18,6 +19,7 @@ public class Space {
     private HeroShot heroShot;
     private Hero hero;
     private Coin coin;
+    private Boss boss;
     private List<Lives> lives;
     private List<Delta> deltas;
     private List<Alpha> alphas;
@@ -63,6 +65,10 @@ public class Space {
         return walls;
     }
 
+    public Boss getBoss() {
+        return boss;
+    }
+
     public List<Beta> getBetas() {
         return betas;
     }
@@ -106,6 +112,10 @@ public class Space {
 
     public void setGammas(List<Gamma> gammas) {
         this.gammas = gammas;
+    }
+
+    public void setBoss(Boss boss) {
+        this.boss = boss;
     }
 
     public void setBetas(List<Beta> betas) {

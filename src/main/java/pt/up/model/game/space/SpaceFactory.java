@@ -4,6 +4,7 @@ import pt.up.model.game.elements.*;
 import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
 import pt.up.model.game.elements.enemy.Delta;
+import pt.up.model.game.elements.enemy.Boss;
 import pt.up.model.game.elements.enemy.Gamma;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public abstract class SpaceFactory {
         space.setHero(createHero());
         space.setAlphas(createAlphas());
         space.setBetas(createBetas());
+        space.setBoss(createBoss());
         space.setGammas(createGammas());
         space.setLives(createLives());
         space.setWalls(createWalls());
@@ -44,6 +46,8 @@ public abstract class SpaceFactory {
     protected abstract List<CelGro> createCeiGro();
 
     protected abstract List<Lives> createLives();
+
+    protected abstract Boss createBoss();
 
     protected abstract Hero createHero();
 
