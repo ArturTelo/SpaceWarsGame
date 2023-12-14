@@ -149,11 +149,8 @@ public class Space {
             Alpha alpha = iterator.next();
 
             if (alpha.getPosition().equals(position)) {
-                alpha.reduceHealth();
-                if (alpha.getHealth() == 0) {
-                    iterator.remove();
-                    getHero().incrementHeroScore(alpha.getPoints());
-                }
+                iterator.remove();
+                getHero().incrementHeroScore(alpha.getPoints());
                 return true;
             }
         }
@@ -178,11 +175,8 @@ public class Space {
             Beta beta = iterator.next();
 
             if (beta.getPosition().equals(position)) {
-                beta.reduceHealth();
-                if (beta.getHealth() == 0) {
-                    iterator.remove();
-                    getHero().incrementHeroScore(beta.getPoints());
-                }
+                iterator.remove();
+                getHero().incrementHeroScore(beta.getPoints());
                 return true;
             }
         }
@@ -197,7 +191,6 @@ public class Space {
             Delta delta = iterator.next();
 
             if (delta.getPosition().equals(position)) {
-                delta.reduceHealth();
                 iterator.remove();
                 getHero().incrementHeroScore(delta.getPoints());
                 return true;
@@ -213,11 +206,8 @@ public class Space {
             Gamma gamma = iterator.next();
 
             if (gamma.getPosition().equals(position)) {
-                gamma.reduceHealth();
-                if (gamma.getHealth() == 0) {
-                    iterator.remove();
-                    getHero().incrementHeroScore(gamma.getPoints());
-                }
+                iterator.remove();
+                getHero().incrementHeroScore(gamma.getPoints());
                 return true;
             }
         }
@@ -234,6 +224,15 @@ public class Space {
                 iterator.remove();
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean collideBoss(Position position) {
+        if (boss.getPosition().equals(position)) {
+            getHero().incrementHeroScore(boss.getPoints());
+            boss = new Boss(999,999);
+            return true;
         }
         return false;
     }
