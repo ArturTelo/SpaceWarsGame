@@ -24,13 +24,14 @@ public class GameViewer extends Viewer<Space> {
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElement(gui, hero, new HeroViewer());
         if(getModel().getHero().getIsShooting())
-            drawElement(gui, getModel().getHeroShot(), new HeroShotViewer());
+        drawElement(gui, getModel().getHeroShot(), new HeroShotViewer());
         //drawElement(gui,getModel().getCoin(),new CoinViewer());
         drawElements(gui,getModel().getAlphas(), new AlphaViewer());
         drawElements(gui, getModel().getBetas(), new BetaViewer());
         drawElements(gui,getModel().getGammas(),new GammaViewer());
         drawElements(gui, getModel().getCeiGro(), new CeiGrouViewer());
         drawElements(gui, getModel().getBarriers(), new BarrierViewer());
+        drawElements(gui,getModel().getDeltas(),new DeltaViewer());
         /*gui.drawText(new Position(0, 0), "Energy: " + getModel().getHero().getHeroHealth(), "#FFD700");*/
     }
 

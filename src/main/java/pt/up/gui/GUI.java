@@ -15,6 +15,7 @@ public interface GUI {
     void drawAlpha(Position position);
 
     void drawGamma(Position position);
+    void drawDelta(Position position);
 
     void drawWall(Position position);
 

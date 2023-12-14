@@ -4,6 +4,7 @@ import pt.up.model.Position;
 import pt.up.model.game.elements.*;
 import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
+import pt.up.model.game.elements.enemy.Delta;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.utils.Configuration;
 
@@ -17,7 +18,7 @@ public class Space {
     private Hero hero;
     private Coin coin;
     private List<Lives> lives;
-
+    private List<Delta> deltas;
     private List<Alpha> alphas;
     private List<Gamma> gammas;
     private List<Wall> walls;
@@ -32,7 +33,6 @@ public class Space {
         Configuration.getInstance().stopAllMusic();
         Configuration.getInstance().getGameMusic().start();
     }
-
     public int getWidth() {
         return width;
     }
@@ -56,6 +56,7 @@ public class Space {
     public List<Gamma> getGammas() {
         return gammas;
     }
+    public List<Delta> getDeltas(){return deltas;}
 
     public List<Wall> getWalls() {
         return walls;
@@ -88,6 +89,7 @@ public class Space {
     public HeroShot getHeroShot() {
         return heroShot;
     }
+    public void setDeltas(List<Delta> deltas){this.deltas=deltas;}
 
     public void setLives(List<Lives> lives) {
         this.lives = lives;

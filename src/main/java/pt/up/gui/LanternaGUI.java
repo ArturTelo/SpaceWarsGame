@@ -121,6 +121,8 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void drawDelta(Position position){drawCharacter(position.getX(), position.getY(), 'D',"#FFFFFF");}
+    @Override
     public void drawBarrier(Position position) {
         drawCharacter(position.getX(), position.getY(), 'B', "#FFFFFF");
     }

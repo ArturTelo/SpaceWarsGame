@@ -3,6 +3,7 @@ package pt.up.model.game.space;
 import pt.up.model.game.elements.*;
 import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
+import pt.up.model.game.elements.enemy.Delta;
 import pt.up.model.game.elements.enemy.Gamma;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public abstract class SpaceFactory {
         space.setWalls(createWalls());
         space.setBarriers(createBarriers());
         space.setCeiGro(createCeiGro());
-
+        space.setDeltas(createDeltas());
         return space;
     }
 
@@ -36,6 +37,7 @@ public abstract class SpaceFactory {
     protected abstract List<Gamma> createGammas();
 
     protected abstract List<Beta> createBetas();
+    protected abstract List<Delta> createDeltas();
 
     protected abstract List<Barrier> createBarriers();
 
@@ -46,5 +48,6 @@ public abstract class SpaceFactory {
     protected abstract Hero createHero();
 
     protected abstract HeroShot createHeroShot();
+
 
 }

@@ -12,6 +12,7 @@ public class SpaceController extends GameController {
     private final AlphaController alphaController;
     private final BetaController betaController;
     private final GammaController gammaController;
+    private final DeltaController deltaController;
 /*
 
 
@@ -24,10 +25,10 @@ public class SpaceController extends GameController {
     public SpaceController(Space space) {
         super(space);
         this.heroController = new HeroController(space);
-        //this.monsterController = new MonsterController(space);
         this.alphaController=new AlphaController(space);
         this.betaController=new BetaController(space);
         this.gammaController=new GammaController(space);
+        this.deltaController= new DeltaController(space);
         /*
 
         this.bossController=new BossController(space);
@@ -44,6 +45,7 @@ public class SpaceController extends GameController {
             alphaController.step(game, action, time);
             betaController.step(game, action,time);
             gammaController.step(game,action,time);
+            deltaController.step(game, action, time);
         }
     }
 }

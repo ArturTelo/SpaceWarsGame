@@ -3,6 +3,7 @@ package pt.up.model.game.space;
 import pt.up.model.game.elements.*;
 import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
+import pt.up.model.game.elements.enemy.Delta;
 import pt.up.model.game.elements.enemy.Gamma;
 
 import java.io.BufferedReader;
@@ -76,6 +77,17 @@ public class SpaceLoader extends SpaceFactory {
                 if (line.charAt(x) == 'G') gammas.add(new Gamma(x, y));
         }
         return gammas;
+    }
+    @Override
+    protected List<Delta> createDeltas() {
+        List<Delta> deltas = new ArrayList<>();
+
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'D') deltas.add(new Delta(x, y));
+        }
+        return deltas;
     }
 
 

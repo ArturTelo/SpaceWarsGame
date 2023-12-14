@@ -24,8 +24,7 @@ public class HeroController extends GameController {
     }
 
     public void createHeroShoot(){
-        if(!getModel().getHero().getIsShooting())
-        {
+        if(!getModel().getHero().getIsShooting()) {
             getModel().setHeroShot(new HeroShot(getModel().getHero().getPosition().getX(),getModel().getHero().getPosition().getX()));
             getModel().getHero().createShot();
         }
@@ -50,13 +49,9 @@ public class HeroController extends GameController {
         if (action == GUI.ACTION.LEFT) moveHeroLeft();
         if (action == GUI.ACTION.SHOOT) createHeroShoot();
 
-        if(getModel().getHero().getIsShooting())
-        {
+        if(getModel().getHero().getIsShooting()) {
             moveHeroShootY();
-            if(getModel().getHeroShot().getPosition().getY() < 1)
-            {
-                getModel().getHero().delShot();
-            }
+            if(getModel().getHeroShot().getPosition().getY() < 1) { getModel().getHero().delShot(); }
 
         }
 
