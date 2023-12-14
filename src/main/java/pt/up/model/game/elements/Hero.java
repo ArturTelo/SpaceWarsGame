@@ -14,6 +14,10 @@ public class Hero extends Element {
     }
     public int getScore(){return score;}
 
+    public void incrementHeroScore(int enemyPoints){
+        score += enemyPoints;
+    }
+
     public void reduceHeroHealth() {
         health--;
     }
@@ -41,6 +45,7 @@ public class Hero extends Element {
     public int getHeroCoins() {
         return coins;
     }
+
 
     public void incrementHeroCoins() {
         coins++;
