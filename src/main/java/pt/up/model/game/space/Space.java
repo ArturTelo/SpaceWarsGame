@@ -6,6 +6,7 @@ import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
 import pt.up.model.game.elements.enemy.Delta;
 import pt.up.model.game.elements.enemy.Gamma;
+import pt.up.model.game.elements.enemy.Boss;
 import pt.up.utils.Configuration;
 
 import java.util.Iterator;
@@ -18,6 +19,7 @@ public class Space {
     private HeroShot heroShot;
     private Hero hero;
     private Coin coin;
+    private Boss boss;
     private List<Lives> lives;
     private List<Delta> deltas;
     private List<Alpha> alphas;
@@ -63,6 +65,10 @@ public class Space {
         return walls;
     }
 
+    public Boss getBoss() {
+        return boss;
+    }
+
     public List<Beta> getBetas() {
         return betas;
     }
@@ -106,6 +112,10 @@ public class Space {
 
     public void setGammas(List<Gamma> gammas) {
         this.gammas = gammas;
+    }
+
+    public void setBoss(Boss boss) {
+        this.boss = boss;
     }
 
     public void setBetas(List<Beta> betas) {
@@ -179,6 +189,23 @@ public class Space {
         return false;
     }
 
+    public boolean collideDeltas(Position position) {
+
+        Iterator<Delta> iterator = deltas.iterator();
+
+        while (iterator.hasNext()) {
+            Delta delta = iterator.next();
+
+            if (delta.getPosition().equals(position)) {
+                delta.reduceHealth();
+                iterator.remove();
+                getHero().incrementHeroScore(delta.getPoints());
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean collideGammas(Position position) {
         Iterator<Gamma> iterator = gammas.iterator();
 
@@ -198,8 +225,13 @@ public class Space {
     }
 
     public boolean collideBarriers(Position position) {
-        for (Barrier barrier : barriers) {
+        Iterator<Barrier> iterator = barriers.iterator();
+
+        while (iterator.hasNext()) {
+            Barrier barrier = iterator.next();
+
             if (barrier.getPosition().equals(position)) {
+                iterator.remove();
                 return true;
             }
         }

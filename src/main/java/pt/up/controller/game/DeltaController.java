@@ -2,6 +2,7 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
+import pt.up.model.game.elements.enemy.Delta;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
 
@@ -26,18 +27,19 @@ public class DeltaController extends GammaController{
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
         changed=false;
         // 1 vai para a direita e 0 para a esquerda
-        if (time - lastMovement > 500) {
-            for(Gamma gamma: getModel().getGammas()){
-                move(gamma,gamma.getPosition());
+        if (time - lastMovement > 300) {
+            for(Delta delta: getModel().getDeltas()){
+                move(delta,delta.getPosition());
             }
             countpositions++;
+            lastMovement = time;
         }
-        if(countpositions==57){countpositions=0;}
+        if(countpositions==53){countpositions=0;}
         chagedirection();
     }
 
-    private void move(Gamma gamma, Position position) {
-        if (countpositions<55){
+    private void move(Delta gamma, Position position) {
+        if (countpositions<51){
             if(side==1){
                 gamma.setPosition(new Position(gamma.getPosition().getX()+1, gamma.getPosition().getY()));
             }
@@ -45,7 +47,7 @@ public class DeltaController extends GammaController{
                 gamma.setPosition(new Position(gamma.getPosition().getX()-1 ,gamma.getPosition().getY()));
             }
         }
-        else if (countpositions==56){
+        else if (countpositions==52){
             if(side==1){
                 gamma.setPosition(new Position(gamma.getPosition().getX(), gamma.getPosition().getY()+1));
                 changed=true;

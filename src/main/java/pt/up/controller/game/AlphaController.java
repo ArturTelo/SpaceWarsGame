@@ -3,11 +3,13 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
+import pt.up.model.game.elements.Element;
 import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
 
 
+import java.awt.*;
 import java.io.IOException;
 
 public class AlphaController extends GameController{
@@ -28,18 +30,19 @@ public class AlphaController extends GameController{
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
         changed=false;
         // 1 vai para a direita e 0 para a esquerda
-        if (time - lastMovement > 500) {
-            for(Gamma element: getModel().getGammas()){
+        if (time - lastMovement > 300) {
+            for(Alpha element: getModel().getAlphas()){
                 move(element,element.getPosition());
             }
             countpositions++;
+            lastMovement = time;
         }
-        if(countpositions==57){countpositions=0;}
+        if(countpositions==53){countpositions=0;}
         chagedirection();
     }
 
-    private void move(Gamma element, Position position) {
-        if (countpositions<55){
+    private void move(Alpha element, Position position) {
+        if (countpositions<51){
             if(side==1){
                 element.setPosition(new Position(element.getPosition().getX()+1, element.getPosition().getY()));
             }
@@ -47,7 +50,7 @@ public class AlphaController extends GameController{
                element.setPosition(new Position(element.getPosition().getX()-1 ,element.getPosition().getY()));
             }
         }
-        else if (countpositions==56){
+        else if (countpositions==52){
             if(side==1){
                 element.setPosition(new Position(element.getPosition().getX(), element.getPosition().getY()+1));
                 changed=true;
