@@ -166,4 +166,14 @@ public class SpaceLoader extends SpaceFactory {
         }
         return null;
     }
+
+    @Override
+    protected BossShot createBossShot(){
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'I') return new BossShot(x, y);
+        }
+        return null;
+    }
 }

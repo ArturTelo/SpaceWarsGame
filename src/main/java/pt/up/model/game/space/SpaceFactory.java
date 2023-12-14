@@ -1,11 +1,7 @@
 package pt.up.model.game.space;
 
 import pt.up.model.game.elements.*;
-import pt.up.model.game.elements.enemy.Alpha;
-import pt.up.model.game.elements.enemy.Beta;
-import pt.up.model.game.elements.enemy.Delta;
-import pt.up.model.game.elements.enemy.Boss;
-import pt.up.model.game.elements.enemy.Gamma;
+import pt.up.model.game.elements.enemy.*;
 
 import java.util.List;
 
@@ -15,6 +11,7 @@ public abstract class SpaceFactory {
 
         space.setHero(createHero());
         space.setHeroShot(createHeroShot());
+        space.setBossShot(createBossShot());
         space.setHero(createHero());
         space.setAlphas(createAlphas());
         space.setBetas(createBetas());
@@ -52,6 +49,8 @@ public abstract class SpaceFactory {
     protected abstract Hero createHero();
 
     protected abstract HeroShot createHeroShot();
+
+    protected abstract BossShot createBossShot();
 
 
 }
