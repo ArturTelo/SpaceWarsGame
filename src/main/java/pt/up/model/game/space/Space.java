@@ -140,6 +140,7 @@ public class Space {
                 alpha.reduceHealth();
                 if (alpha.getHealth() == 0) {
                     iterator.remove();
+                    getHero().incrementHeroScore(alpha.getPoints());
                 }
                 return true;
             }
@@ -147,22 +148,6 @@ public class Space {
         return false;
     }
 
-    public boolean collideGammas(Position position) {
-        Iterator<Gamma> iterator = gammas.iterator();
-
-        while (iterator.hasNext()) {
-            Gamma gamma = iterator.next();
-
-            if (gamma.getPosition().equals(position)) {
-                gamma.reduceHealth();
-                if (gamma.getHealth() == 0) {
-                    iterator.remove();
-                }
-                return true;
-            }
-        }
-        return false;
-    }
 
     public boolean collideWalls(Position position) {
         for (Wall wall : walls) {
@@ -184,6 +169,25 @@ public class Space {
                 beta.reduceHealth();
                 if (beta.getHealth() == 0) {
                     iterator.remove();
+                    getHero().incrementHeroScore(beta.getPoints());
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean collideGammas(Position position) {
+        Iterator<Gamma> iterator = gammas.iterator();
+
+        while (iterator.hasNext()) {
+            Gamma gamma = iterator.next();
+
+            if (gamma.getPosition().equals(position)) {
+                gamma.reduceHealth();
+                if (gamma.getHealth() == 0) {
+                    iterator.remove();
+                    getHero().incrementHeroScore(gamma.getPoints());
                 }
                 return true;
             }
@@ -216,6 +220,7 @@ public class Space {
     public boolean collideHero(Position position) {
         return hero.getPosition().equals(position);
     }
-}
 
+
+}
 
