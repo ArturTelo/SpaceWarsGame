@@ -28,18 +28,6 @@ public class BossController extends GameController{
             getModel().getBossShot().setPosition(position);
             //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
         }
-        if(getModel().collideBarriers(position)){
-            getModel().getBoss().delShot();
-        }
-        if(getModel().getBossShot().getPosition().getY() > 32)
-        {
-            getModel().getBoss().delShot();
-        }
-        if(getModel().collideHero(position)){
-            getModel().getHero().reduceHeroHealth(1);
-            getModel().getBoss().delShot();
-        }
-
     }
 
     public BossController(Space space) {
@@ -58,7 +46,7 @@ public class BossController extends GameController{
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
         changed=false;
         // 1 vai para a direita e 0 para a esquerda
-        if (time - lastMovement > 500){
+        if (time - lastMovement > 50){
             Boss boss = getModel().getBoss();
             move(boss,boss.getPosition());
             countpositions++;
@@ -73,6 +61,18 @@ public class BossController extends GameController{
         }
         if(getModel().getBoss().getIsShooting()) {
             moveBossShotY();
+            Position position = getModel().getBossShot().getPosition();
+            if(getModel().getBossShot().getPosition().getY() > 32)
+            {
+                getModel().getBoss().delShot();
+            }
+            if(getModel().collideHero(position)){
+                getModel().getHero().reduceHeroHealth(1);
+                getModel().getBoss().delShot();
+            }
+            if(getModel().collideBarriers(position)){
+                getModel().getBoss().delShot();
+            }
         }
 
     }

@@ -8,7 +8,6 @@ public class Boss extends Enemy {
         points = (random.nextInt(16) + 5) * 10;
     }
     private boolean isShooting = false;
-
     public boolean getIsShooting(){
         return this.isShooting;
     }

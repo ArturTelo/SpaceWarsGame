@@ -4,40 +4,13 @@ import pt.up.gui.GUI;
 import pt.up.model.Position;
 import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
-import pt.up.model.game.elements.enemy.EnemyShot;
 import pt.up.model.game.space.Space;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class BetaController extends GameController{
-    public int i;
     private long lastMovement;
-    public void moveShotY(){
-        moveShot(getModel().getEnemyShoot().getPosition().getDown());}
-    public void  createElementShoot(int i){
-        if(!getModel().getBetas().get(i).getIsShooting())
-        {
-            getModel().setEnemyShoot(new EnemyShot(getModel().getBetas().get(i).getPosition().getX(),getModel().getBetas().get(i).getPosition().getY()));
-            getModel().getBetas().get(i).createShot();
-        }
-    }
-    private void moveShot(Position position) {
-        if (getModel().isEmpty(position)) {
-            getModel().getEnemyShoot().setPosition(position);
-            //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
-        }
-        if(getModel().collideBarriers(position)){
-            getModel().getBetas().get(i).delShot();
-        }
-        if(getModel().getEnemyShoot().getPosition().getY() > 32)
-        {
-            getModel().getBetas().get(i).delShot();
-        }
-        if(getModel().collideHero(position)){
-            getModel().getHero().reduceHeroHealth(1);
-            getModel().getBetas().get(i).delShot();
-        }}
+
     public BetaController(Space space) {
         super(space);
         this.lastMovement = 0;
@@ -63,15 +36,6 @@ public class BetaController extends GameController{
         }
         if(countpositions==53){countpositions=0;}
         chagedirection();
-        Random random = new Random();
-        if(random.nextInt(200)==3){
-            Random random1 = new Random();
-            i=random1.nextInt(getModel().getBetas().size());
-            createElementShoot((i));
-        }
-        if(getModel().getBetas().get(i).getIsShooting()) {
-            moveShotY();
-        }
     }
 
     private void move(Beta element, Position position) {

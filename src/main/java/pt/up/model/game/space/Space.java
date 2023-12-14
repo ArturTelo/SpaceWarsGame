@@ -25,7 +25,6 @@ public class Space {
     private List<Beta> betas;
     private List<Barrier> barriers;
     private List<CelGro> ceilingground;
-    private EnemyShot enemyShoot;
 
     public Space(int width, int height) {
         this.width = width;
@@ -53,7 +52,6 @@ public class Space {
     public void setBossShot(BossShot bossShot){
         this.bossShot = bossShot;
     }
-    public void setEnemyShoot(EnemyShot enemyShoot){this.enemyShoot=enemyShoot;}
 
     public List<Alpha> getAlphas() {
         return alphas;
@@ -102,7 +100,6 @@ public class Space {
     public BossShot getBossShot() {
         return bossShot;
     }
-    public EnemyShot getEnemyShoot(){return enemyShoot;}
 
     public void setDeltas(List<Delta> deltas){this.deltas=deltas;}
 
@@ -137,6 +134,7 @@ public class Space {
     public void setCeiGro(List<CelGro> ceilingground) {
         this.ceilingground = ceilingground;
     }
+
     public void setCoin(Coin coin) {
         this.coin = coin;
     }
@@ -153,18 +151,12 @@ public class Space {
         Iterator<Alpha> iterator = alphas.iterator();
 
         while (iterator.hasNext()) {
-            Alpha delta = iterator.next();
+            Alpha alpha = iterator.next();
 
-            if (delta.getPosition().equals(position)) {
-                if(getHeroShot()!=null && getHeroShot().getPosition()==position){
-                    delta.decreaseHealth();
-                }
-                if(delta.getHealth()==0){
-                    iterator.remove();
-                    getHero().incrementHeroScore(delta.getPoints());}
-                if (delta.getPosition().equals(position)) {
-                    return true;
-                }
+            if (alpha.getPosition().equals(position)) {
+                iterator.remove();
+                getHero().incrementHeroScore(alpha.getPoints());
+                return true;
             }
         }
         return false;
@@ -181,46 +173,36 @@ public class Space {
     }
 
     public boolean collideBetas(Position position) {
+
         Iterator<Beta> iterator = betas.iterator();
 
         while (iterator.hasNext()) {
-            Beta delta = iterator.next();
+            Beta beta = iterator.next();
 
-            if (delta.getPosition().equals(position)) {
-                if(getHeroShot()!=null && getHeroShot().getPosition()==position){
-                    delta.decreaseHealth();
-                }
-                if(delta.getHealth()==0){
-                    iterator.remove();
-                    getHero().incrementHeroScore(delta.getPoints());}
-                if (delta.getPosition().equals(position)) {
-                    return true;
-                }
+            if (beta.getPosition().equals(position)) {
+                iterator.remove();
+                getHero().incrementHeroScore(beta.getPoints());
+                return true;
             }
         }
         return false;
     }
 
     public boolean collideDeltas(Position position) {
-            Iterator<Delta> iterator = deltas.iterator();
 
-            while (iterator.hasNext()) {
-                Delta delta = iterator.next();
+        Iterator<Delta> iterator = deltas.iterator();
 
-                if (delta.getPosition().equals(position)) {
-                    if(getHeroShot()!=null && getHeroShot().getPosition()==position){
-                        delta.decreaseHealth();
-                    }
-                    if(delta.getHealth()==0){
-                        iterator.remove();
-                        getHero().incrementHeroScore(delta.getPoints());}
-                    if (delta.getPosition().equals(position)) {
-                        return true;
-                    }
-                }
+        while (iterator.hasNext()) {
+            Delta delta = iterator.next();
+
+            if (delta.getPosition().equals(position)) {
+                iterator.remove();
+                getHero().incrementHeroScore(delta.getPoints());
+                return true;
             }
-            return false;
         }
+        return false;
+    }
 
     public boolean collideGammas(Position position) {
         Iterator<Gamma> iterator = gammas.iterator();
@@ -229,15 +211,9 @@ public class Space {
             Gamma gamma = iterator.next();
 
             if (gamma.getPosition().equals(position)) {
-                if(getHeroShot()!=null && getHeroShot().getPosition()==position){
-                    gamma.decreaseHealth();
-                }
-                if(gamma.getHealth()==0){
-                    iterator.remove();
-                    getHero().incrementHeroScore(gamma.getPoints());}
-                if (gamma.getPosition().equals(position)) {
-                    return true;
-                }
+                iterator.remove();
+                getHero().incrementHeroScore(gamma.getPoints());
+                return true;
             }
         }
         return false;
@@ -248,10 +224,9 @@ public class Space {
 
         while (iterator.hasNext()) {
             Barrier barrier = iterator.next();
-            if(barrier.getResistance()==0){iterator.remove();}
+
             if (barrier.getPosition().equals(position)) {
-                if(getHeroShot()!=null && getHeroShot().getPosition()==position){
-                    barrier.reduceresistance();}
+                iterator.remove();
                 return true;
             }
         }

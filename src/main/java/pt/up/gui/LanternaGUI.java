@@ -151,7 +151,6 @@ public class LanternaGUI implements GUI {
     public void drawLive(Position position) {
         drawCharacter(position.getX(), position.getY(), 'l', "#FFFFFF");
     }
-    public void drawEnemyShot(Position position){drawCharacter(position.getX(), position.getY(),'I',"#FF0000");}
 
     @Override
     public void drawText(Position position, String text, String color) {

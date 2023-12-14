@@ -3,12 +3,8 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
-import pt.up.model.game.elements.Element;
 import pt.up.model.game.elements.HeroShot;
 import pt.up.model.game.space.Space;
-
-import javax.lang.model.util.Elements;
-import java.util.List;
 
 public class HeroController extends GameController {
     public HeroController(Space arena) {
@@ -48,7 +44,6 @@ public class HeroController extends GameController {
         }
     }
 
-
     @Override
     public void step(pt.up.Space game, GUI.ACTION action, long time) {
         if (action == GUI.ACTION.RIGHT) moveHeroRight();
@@ -63,7 +58,6 @@ public class HeroController extends GameController {
             }
             if(getModel().collideBoss(position)){
                 getModel().getHero().delShot();
-                getModel().getBoss().decreaseHealth();
             }
             if(getModel().collideDeltas(position)){
                 getModel().getHero().delShot();
