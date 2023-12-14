@@ -179,6 +179,23 @@ public class Space {
         return false;
     }
 
+    public boolean collideDeltas(Position position) {
+
+        Iterator<Delta> iterator = deltas.iterator();
+
+        while (iterator.hasNext()) {
+            Delta delta = iterator.next();
+
+            if (delta.getPosition().equals(position)) {
+                delta.reduceHealth();
+                iterator.remove();
+                getHero().incrementHeroScore(delta.getPoints());
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean collideGammas(Position position) {
         Iterator<Gamma> iterator = gammas.iterator();
 
@@ -198,8 +215,13 @@ public class Space {
     }
 
     public boolean collideBarriers(Position position) {
-        for (Barrier barrier : barriers) {
+        Iterator<Barrier> iterator = barriers.iterator();
+
+        while (iterator.hasNext()) {
+            Barrier barrier = iterator.next();
+
             if (barrier.getPosition().equals(position)) {
+                iterator.remove();
                 return true;
             }
         }
