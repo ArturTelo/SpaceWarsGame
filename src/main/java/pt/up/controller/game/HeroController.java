@@ -56,6 +56,9 @@ public class HeroController extends GameController {
             if(getModel().collideBarriers(position)){
                 getModel().getHero().delShot();
             }
+            if(getModel().collideBoss(position)){
+                getModel().getHero().delShot();
+            }
             if(getModel().collideDeltas(position)){
                 getModel().getHero().delShot();
             }
