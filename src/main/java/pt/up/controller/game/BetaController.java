@@ -34,12 +34,12 @@ public class BetaController extends GameController{
             countpositions++;
             lastMovement = time;
         }
-        if(countpositions==57){countpositions=0;}
+        if(countpositions==53){countpositions=0;}
         chagedirection();
     }
 
     private void move(Beta element, Position position) {
-        if (countpositions<55){
+        if (countpositions<51){
             if(side==1){
                 element.setPosition(new Position(element.getPosition().getX()+1, element.getPosition().getY()));
             }
@@ -47,7 +47,7 @@ public class BetaController extends GameController{
                 element.setPosition(new Position(element.getPosition().getX()-1 ,element.getPosition().getY()));
             }
         }
-        else if (countpositions==56){
+        else if (countpositions==52){
             if(side==1){
                 element.setPosition(new Position(element.getPosition().getX(), element.getPosition().getY()+1));
                 changed=true;

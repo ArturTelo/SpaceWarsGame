@@ -1,10 +1,7 @@
 package pt.up.model.game.space;
 
 import pt.up.model.game.elements.*;
-import pt.up.model.game.elements.enemy.Alpha;
-import pt.up.model.game.elements.enemy.Beta;
-import pt.up.model.game.elements.enemy.Delta;
-import pt.up.model.game.elements.enemy.Gamma;
+import pt.up.model.game.elements.enemy.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -146,6 +143,16 @@ public class SpaceLoader extends SpaceFactory {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'H') return new Hero(x, y);
+        }
+        return null;
+    }
+
+    @Override
+    protected Boss createBoss() {
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'M') return new Boss(x, y);
         }
         return null;
     }
