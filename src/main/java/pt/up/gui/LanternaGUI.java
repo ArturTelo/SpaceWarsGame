@@ -59,7 +59,7 @@ public class LanternaGUI implements GUI {
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/main.ttf");
+        URL resource = getClass().getClassLoader().getResource("fonts/Spacewars1.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -92,7 +92,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawAlpha(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'A', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'a', "#FFFFFF");
     }
 
     @Override
@@ -102,29 +102,29 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawGamma(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'G', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'g', "#FFFFFF");
     }
 
     @Override
     public void drawHero(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'h', "#FFFFFF");
     }
 
     @Override
     public void drawWall(Position position) {
-        drawCharacter(position.getX(), position.getY(), '|', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'i', "#FFFFFF");
     }
 
     @Override
     public void drawBeta(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'E', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'e', "#FFFFFF");
     }
 
     @Override
-    public void drawDelta(Position position){drawCharacter(position.getX(), position.getY(), 'D',"#FFFFFF");}
+    public void drawDelta(Position position){drawCharacter(position.getX(), position.getY(), 'd',"#FFFFFF");}
     @Override
     public void drawBarrier(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'B', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'b', "#FFFFFF");
     }
 
     @Override
@@ -134,17 +134,17 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawBoss(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'M', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'm', "#FFFFFF");
     }
 
     @Override
     public void drawCoin(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'C', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'c', "#FFFFFF");
     }
 
     @Override
     public void drawLive(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'L', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 'l', "#FFFFFF");
     }
 
     @Override
