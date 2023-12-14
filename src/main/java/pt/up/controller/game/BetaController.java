@@ -27,11 +27,12 @@ public class BetaController extends GameController{
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
         changed=false;
         // 1 vai para a direita e 0 para a esquerda
-        if (time - lastMovement > 500) {
+        if (time - lastMovement > 300) {
             for(Beta element: getModel().getBetas()){
                 move(element,element.getPosition());
             }
             countpositions++;
+            lastMovement = time;
         }
         if(countpositions==57){countpositions=0;}
         chagedirection();

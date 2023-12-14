@@ -27,11 +27,12 @@ public class DeltaController extends GammaController{
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
         changed=false;
         // 1 vai para a direita e 0 para a esquerda
-        if (time - lastMovement > 500) {
+        if (time - lastMovement > 300) {
             for(Delta delta: getModel().getDeltas()){
                 move(delta,delta.getPosition());
             }
             countpositions++;
+            lastMovement = time;
         }
         if(countpositions==57){countpositions=0;}
         chagedirection();
