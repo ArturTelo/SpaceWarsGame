@@ -3,6 +3,10 @@ package pt.up.viewer.game;
 import pt.up.gui.GUI;
 import pt.up.model.game.elements.Element;
 import pt.up.model.game.elements.Hero;
+import pt.up.model.game.elements.enemy.Alpha;
+import pt.up.model.game.elements.enemy.Beta;
+import pt.up.model.game.elements.enemy.Delta;
+import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
 import pt.up.viewer.Viewer;
 
@@ -35,6 +39,27 @@ public class GameViewer extends Viewer<Space> {
         drawElements(gui, getModel().getCeiGro(), new CeiGrouViewer());
         drawElements(gui, getModel().getBarriers(), new BarrierViewer());
         drawElements(gui,getModel().getDeltas(),new DeltaViewer());
+        for(Alpha alpha:getModel().getAlphas()){
+            if(alpha.getIsShooting()){
+                drawElement(gui,getModel().getEnemyShoot(),new EnemyShootViewer());
+            }
+        }
+        for(Beta element:getModel().getBetas()){
+            if(element.getIsShooting()){
+                drawElement(gui,getModel().getEnemyShoot(),new EnemyShootViewer());
+            }
+        }
+        for(Delta element:getModel().getDeltas()){
+            if(element.getIsShooting()){
+                drawElement(gui,getModel().getEnemyShoot(),new EnemyShootViewer());
+            }
+        }
+        for(Gamma element:getModel().getGammas()){
+            if(element.getIsShooting()){
+                drawElement(gui,getModel().getEnemyShoot(),new EnemyShootViewer());
+            }
+        }
+
         /*gui.drawText(new Position(0, 0), "Energy: " + getModel().getHero().getHeroHealth(), "#FFD700");*/
     }
 

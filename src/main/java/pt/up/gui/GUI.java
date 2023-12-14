@@ -28,7 +28,7 @@ public interface GUI {
     void drawBoss(Position position);
 
     void drawCoin(Position position);
-
+    void drawEnemyShot(Position position);
     void drawLive(Position position);
 
     void drawText(Position position, String text, String color);
