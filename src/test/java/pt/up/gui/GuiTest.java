@@ -1,4 +1,4 @@
-package up.pt.gui;
+package pt.up.gui;
 
 public class GuiTest {
 }

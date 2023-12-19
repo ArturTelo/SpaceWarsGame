@@ -1,4 +1,4 @@
-package up.pt.viewer;
+package pt.up.viewer;
 
 public class viewerTest {
 }

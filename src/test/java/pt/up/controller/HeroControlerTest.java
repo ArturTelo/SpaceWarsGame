@@ -1,4 +1,4 @@
-package up.pt.controller;
+package pt.up.controller;
 
 public class HeroControlerTest {
 }

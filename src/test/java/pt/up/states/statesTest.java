@@ -1,4 +1,4 @@
-package up.pt.states;
+package pt.up.states;
 
 public class statesTest {
 }
