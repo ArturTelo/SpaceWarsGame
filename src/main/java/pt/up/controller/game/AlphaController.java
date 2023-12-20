@@ -44,7 +44,7 @@ public class AlphaController extends GameController{
         if(countpositions==53){countpositions=0;}
         chagedirection();
         Random random = new Random();
-        if(random.nextInt(200)==3){
+        if(random.nextInt(100)==3){
             Random random1=new Random();
             i=random1.nextInt(getModel().getAlphas().size());
             createEnemyShot(i);
@@ -64,8 +64,8 @@ public class AlphaController extends GameController{
                 if(getModel().collideBarriers(position)){
                     element.delShot();
                 }
+            }
         }
-    }
     }
 
     public void moveShotY(){

@@ -2,13 +2,15 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
-import pt.up.model.game.elements.enemy.Beta;
+import pt.up.model.game.elements.enemy.EnemyShot;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class GammaController extends GameController{
+    private int i;
     private long lastMovement;
 
     public GammaController(Space space) {
@@ -36,6 +38,47 @@ public class GammaController extends GameController{
         }
         if(countpositions==53){countpositions=0;}
         chagedirection();
+        Random random = new Random();
+        if(random.nextInt(100)==3){
+            Random random1=new Random();
+            i=random1.nextInt(getModel().getGammas().size());
+            createEnemyShot(i);
+        }
+        for(Gamma element: getModel().getGammas()){
+            if(element.getIsShooting()) {
+                moveShotY();
+                Position position = getModel().getEnemyShot().getPosition();
+                if(getModel().getEnemyShot().getPosition().getY() > 32)
+                {
+                    element.delShot();
+                }
+                if(getModel().collideHero(position)){
+                    getModel().getHero().reduceHeroHealth(1);
+                    element.delShot();
+                }
+                if(getModel().collideBarriers(position)){
+                    element.delShot();
+                }
+            }
+        }
+    }
+    public void moveShotY(){
+        moveShot(getModel().getEnemyShot().getPosition().getDown());
+    }
+
+    private void moveShot(Position position) {
+        if (getModel().isEmpty(position)) {
+            getModel().getEnemyShot().setPosition(position);
+            //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
+        }
+    }
+
+    private void createEnemyShot(int i) {
+        if(!getModel().getGammas().get(i).getIsShooting())
+        {
+            getModel().setEnemyShot(new EnemyShot(getModel().getGammas().get(i).getPosition().getX(),getModel().getGammas().get(i).getPosition().getY()));
+            getModel().getGammas().get(i).createShot();
+        }
     }
 
     private void move(Gamma gamma, Position position) {
