@@ -38,26 +38,27 @@ public class GammaController extends GameController{
         }
         if(countpositions==53){countpositions=0;}
         chagedirection();
-        Random random = new Random();
-        if(random.nextInt(100)==3){
-            Random random1=new Random();
-            i=random1.nextInt(getModel().getGammas().size());
-            createEnemyShot(i);
-        }
-        for(Gamma element: getModel().getGammas()){
-            if(element.getIsShooting()) {
-                moveShotY();
-                Position position = getModel().getEnemyShot().getPosition();
-                if(getModel().getEnemyShot().getPosition().getY() > 32)
-                {
-                    element.delShot();
-                }
-                if(getModel().collideHero(position)){
-                    getModel().getHero().reduceHeroHealth(1);
-                    element.delShot();
-                }
-                if(getModel().collideBarriers(position)){
-                    element.delShot();
+        if(getModel().getGammas().size()!=0) {
+            Random random = new Random();
+            if (random.nextInt(100) == 3) {
+                Random random1 = new Random();
+                i = random1.nextInt(getModel().getGammas().size());
+                createEnemyShot(i);
+            }
+            for (Gamma element : getModel().getGammas()) {
+                if (element.getIsShooting()) {
+                    moveShotY();
+                    Position position = getModel().getEnemyShot().getPosition();
+                    if (getModel().getEnemyShot().getPosition().getY() > 32) {
+                        element.delShot();
+                    }
+                    if (getModel().collideHero(position)) {
+                        getModel().getHero().reduceHeroHealth(1);
+                        element.delShot();
+                    }
+                    if (getModel().collideBarriers(position)) {
+                        element.delShot();
+                    }
                 }
             }
         }

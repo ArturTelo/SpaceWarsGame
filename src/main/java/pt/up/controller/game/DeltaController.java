@@ -39,26 +39,27 @@ public class DeltaController extends GammaController{
         }
         if(countpositions==53){countpositions=0;}
         chagedirection();
-        Random random = new Random();
-        if(random.nextInt(200)==3){
-            Random random1=new Random();
-            i=random1.nextInt(getModel().getDeltas().size());
-            createEnemyShot(i);
-        }
-        for(Delta element: getModel().getDeltas()){
-            if(element.getIsShooting()) {
-                moveShotY();
-                Position position = getModel().getEnemyShot().getPosition();
-                if(getModel().getEnemyShot().getPosition().getY() > 32)
-                {
-                    element.delShot();
-                }
-                if(getModel().collideHero(position)){
-                    getModel().getHero().reduceHeroHealth(1);
-                    element.delShot();
-                }
-                if(getModel().collideBarriers(position)){
-                    element.delShot();
+        if(getModel().getDeltas().size()!=0) {
+            Random random = new Random();
+            if (random.nextInt(200) == 3) {
+                Random random1 = new Random();
+                i = random1.nextInt(getModel().getDeltas().size());
+                createEnemyShot(i);
+            }
+            for (Delta element : getModel().getDeltas()) {
+                if (element.getIsShooting()) {
+                    moveShotY();
+                    Position position = getModel().getEnemyShot().getPosition();
+                    if (getModel().getEnemyShot().getPosition().getY() > 32) {
+                        element.delShot();
+                    }
+                    if (getModel().collideHero(position)) {
+                        getModel().getHero().reduceHeroHealth(1);
+                        element.delShot();
+                    }
+                    if (getModel().collideBarriers(position)) {
+                        element.delShot();
+                    }
                 }
             }
         }

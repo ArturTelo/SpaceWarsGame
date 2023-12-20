@@ -37,26 +37,27 @@ public class BetaController extends GameController{
         }
         if(countpositions==53){countpositions=0;}
         chagedirection();
-        Random random = new Random();
-        if(random.nextInt(300)==3){
-            Random random1=new Random();
-            i=random1.nextInt(getModel().getBetas().size());
-            createEnemyShot(i);
-        }
-        for(Beta element: getModel().getBetas()){
-            if(element.getIsShooting()) {
-                moveShotY();
-                Position position = getModel().getEnemyShot().getPosition();
-                if(getModel().getEnemyShot().getPosition().getY() > 32)
-                {
-                    element.delShot();
-                }
-                if(getModel().collideHero(position)){
-                    getModel().getHero().reduceHeroHealth(1);
-                    element.delShot();
-                }
-                if(getModel().collideBarriers(position)){
-                    element.delShot();
+        if(getModel().getBetas().size()!=0) {
+            Random random = new Random();
+            if (random.nextInt(300) == 3) {
+                Random random1 = new Random();
+                i = random1.nextInt(getModel().getBetas().size());
+                createEnemyShot(i);
+            }
+            for (Beta element : getModel().getBetas()) {
+                if (element.getIsShooting()) {
+                    moveShotY();
+                    Position position = getModel().getEnemyShot().getPosition();
+                    if (getModel().getEnemyShot().getPosition().getY() > 32) {
+                        element.delShot();
+                    }
+                    if (getModel().collideHero(position)) {
+                        getModel().getHero().reduceHeroHealth(1);
+                        element.delShot();
+                    }
+                    if (getModel().collideBarriers(position)) {
+                        element.delShot();
+                    }
                 }
             }
         }
