@@ -14,6 +14,7 @@ public class Space {
 
     private HeroShot heroShot;
     private BossShot bossShot;
+    private EnemyShot enemyShot;
     private Hero hero;
     private Coin coin;
     private Boss boss;
@@ -39,18 +40,6 @@ public class Space {
 
     public int getHeight() {
         return height;
-    }
-
-    public void setHero(Hero hero) {
-        this.hero = hero;
-    }
-
-    public void setHeroShot(HeroShot heroShot) {
-        this.heroShot = heroShot;
-    }
-
-    public void setBossShot(BossShot bossShot){
-        this.bossShot = bossShot;
     }
 
     public List<Alpha> getAlphas() {
@@ -99,6 +88,23 @@ public class Space {
     }
     public BossShot getBossShot() {
         return bossShot;
+    }
+    public EnemyShot getEnemyShot(){return enemyShot;}
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public void setHeroShot(HeroShot heroShot) {
+        this.heroShot = heroShot;
+    }
+
+    public void setBossShot(BossShot bossShot){
+        this.bossShot = bossShot;
+    }
+
+    public void setEnemyShot(EnemyShot enemyShot){
+        this.enemyShot = enemyShot;
     }
 
     public void setDeltas(List<Delta> deltas){this.deltas=deltas;}

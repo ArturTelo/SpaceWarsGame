@@ -35,6 +35,7 @@ public interface GUI {
 
     void drawBackground();
     void drawBossShot(Position position);
+    void drawEnemyShot(Position position);
 
     void drawString(int col, int row, String text, TextColor foregroundColor, TextColor backgroundColor);
 

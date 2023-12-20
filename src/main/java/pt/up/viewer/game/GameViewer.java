@@ -3,6 +3,7 @@ package pt.up.viewer.game;
 import pt.up.gui.GUI;
 import pt.up.model.game.elements.Element;
 import pt.up.model.game.elements.Hero;
+import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.space.Space;
 import pt.up.viewer.Viewer;
 
@@ -28,6 +29,11 @@ public class GameViewer extends Viewer<Space> {
             drawElement(gui, getModel().getHeroShot(), new HeroShotViewer());
         if(getModel().getBoss().getIsShooting())
             drawElement(gui, getModel().getBossShot(), new BossShotViewer());
+        for (Alpha element: getModel().getAlphas()){
+            if(element.getIsShooting())
+                drawElement(gui, getModel().getEnemyShot(), new EnemyShotViewer());
+        }
+
         //drawElement(gui,getModel().getCoin(),new CoinViewer());
         drawElements(gui,getModel().getAlphas(), new AlphaViewer());
         drawElements(gui, getModel().getBetas(), new BetaViewer());

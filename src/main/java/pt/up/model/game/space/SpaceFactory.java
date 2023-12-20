@@ -12,6 +12,7 @@ public abstract class SpaceFactory {
         space.setHero(createHero());
         space.setHeroShot(createHeroShot());
         space.setBossShot(createBossShot());
+        //space.setEnemyShot(createEnemyShot());
         space.setHero(createHero());
         space.setAlphas(createAlphas());
         space.setBetas(createBetas());
@@ -51,6 +52,7 @@ public abstract class SpaceFactory {
     protected abstract HeroShot createHeroShot();
 
     protected abstract BossShot createBossShot();
+    //protected abstract EnemyShot createEnemyShot();
 
 
 }

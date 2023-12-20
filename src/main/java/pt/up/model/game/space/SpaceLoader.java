@@ -167,7 +167,7 @@ public class SpaceLoader extends SpaceFactory {
     }
 
     @Override
-    protected BossShot createBossShot(){
+    protected BossShot createBossShot() {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
