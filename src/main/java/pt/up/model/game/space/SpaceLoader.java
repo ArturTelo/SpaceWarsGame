@@ -156,7 +156,7 @@ public class SpaceLoader extends SpaceFactory {
         }
         return null;
     }
-    @Override
+   /* @Override
     protected HeroShot createHeroShot(){
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
@@ -174,5 +174,5 @@ public class SpaceLoader extends SpaceFactory {
                 if (line.charAt(x) == 'I') return new BossShot(x, y);
         }
         return null;
-    }
+    }*/
 }

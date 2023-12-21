@@ -71,7 +71,6 @@ public class DeltaController extends GammaController{
     private void moveShot(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getEnemyShot().setPosition(position);
-            //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
         }
     }
 

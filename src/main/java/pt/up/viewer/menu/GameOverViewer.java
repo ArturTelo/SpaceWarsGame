@@ -12,18 +12,18 @@ public class GameOverViewer extends Viewer<GameOver> {
     }
     protected void drawGameOver(GUI gui){
 
-        String s1="  ______";
-        String s2=" // ____|" ;
-        String s3=" || |  __   ____ _ __ __    ___";
-        String s4=" || | |_ |//  _ ||'_ ` _ \\ / _ \\";
-        String s5=" || |__| ||| (_|||| | | | |  __/";
-        String s6="  \\_____/  \\__,_||| |_| |_|\\___|";
-        String s7="    ______ __      __   __________";
-        String s8="   / / __ \\\\ \\     / /  ____|  __ \\";
-        String s9="  | | |  | |\\ \\   / /| |__  | |__) |";
-        String s10="  | | |  | | \\ \\ / / |  __| |  _  /";
-        String s11="  | | |__| |  \\ \\ /  | |____| | \\ \\";
-        String s12="   \\ \\_____/   \\ \\   |______|_|  \\_\\";
+        String s1="uu______";
+        String s2="u//u____|" ;
+        String s3="u||u|uu__uuu____u_u__u__uuuu___";
+        String s4="u||u|u|_ |//uu_u|||_u_u_u\\u/u_u\\";
+        String s5="u||u|__|u|||u|_||||u|u|u|u|uu__/";
+        String s6="uu\\_____/uu\\__,_|||u|_|u|_|\\___|";
+        String s7="uuuu______u__uuuuuuu__u___________";
+        String s8="uuu/u/u__u\\\\u\\uuuuu/u/uu____|uu__u\\";
+        String s9="uu|u|u|uu|u|\\u\\uuu/u/|u|__  |u|__|u|";
+        String s10="uu|u|u|uu|u|u\\u\\u/u/u|uu__|u|uu_uu/";
+        String s11="uu|u|u|__|u|uu\\u\\u/uu|u|____|u|u\\u\\";
+        String s12="uuu\\u\\_____/uuu\\u\\uuu|______|_|uu\\_\\";
 
         gui.drawString(20, 9, s1, TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
         gui.drawString(20, 10, s2, TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);

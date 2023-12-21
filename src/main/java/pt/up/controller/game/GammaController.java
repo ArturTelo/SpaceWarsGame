@@ -46,7 +46,7 @@ public class GammaController extends GameController{
                 createEnemyShot(i);
             }
             for (Gamma element : getModel().getGammas()) {
-                if (element.getIsShooting()) {
+                if (element.getIsShooting()){
                     moveShotY();
                     Position position = getModel().getEnemyShot().getPosition();
                     if (getModel().getEnemyShot().getPosition().getY() > 32) {

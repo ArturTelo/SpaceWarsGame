@@ -14,11 +14,11 @@ public class MenuViewer extends Viewer<MainMenu> {
     }
 
     public void drawTitle(GUI gui) {
-        String s1 = "  ________  _______      ____      ______  _________ ";
-        String s2 = " / _______| | _____ \\   /    \\    / _____)|  _______|";
-        String s3 = "|________|  | _____) ) / ____ \\  ( (      | |_______ ";
-        String s4 = " ________ \\ | ______/ / /    \\ \\ \\ \\_____ |  _______|";
-        String s5 = "|________/  | |      /_/      \\_\\ \\______)| |_______|";
+        String s1 = "uu________uu_______uuuuuu____uuuuuu______uu_________u";
+        String s2 = "u/u_______|u|u_____u\\uuu/uuuu\\uuuu/u_____||uu_______|";
+        String s3 = "|________|uu|u_____|u|u/u____u\\uu|u|uuuuuu|u|_______u";
+        String s4 = "u________u\\u|u______/u/u/uuuu\\u\\u\\u______u|u|_______|";
+        String s5 = "|________/uu|u|uuuuuu/_/uuuuuu\\_\\u\\______||u|_______|";
 
         gui.drawString(12, 4, s1, TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
         gui.drawString(12, 5, s2, TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
@@ -28,11 +28,11 @@ public class MenuViewer extends Viewer<MainMenu> {
     }
 
     public void drawSubTitle(GUI gui) {
-        String w1 = "__        __       __   ____     _______    ________";
-        String w2 = "\\ \\      /  \\     / /  /    \\   |  __  _|  / _______|";
-        String w3 = " \\ \\    / /\\     / /  / ____ \\  | |__| |  |________|";
-        String w4 = "  \\ \\  / /  \\   / /  / /    \\ \\ |  __  /   ________ \\";
-        String w5 = "   \\ \\/ /    \\_/ /  /_/      \\_\\| |  \\ \\  |________/";
+        String w1 = "__uuuuuuuu__uuuuuuu__uuu____uuuuu_______uuuu________";
+        String w2 = "\\u\\uuuuuu/uu\\uuuuu/u/uu/uuuu\\uuu|uu__uu_|uu/u_______|";
+        String w3 = "u\\u\\uuuu/u/\\uuuuu/u/uu/u____u\\uu|u|__|u|uu|________|";
+        String w4 = "uu\\u\\uu/u/uu\\uuu/u/uu/u/uuuu\\u\\u|uu__uu/uuu________u\\";
+        String w5 = "uuu\\u\\/u/uuuu\\_/u/uu/_/uuuuuu\\_\\|u|uu\\u\\uu|________/";
 
         gui.drawString(12, 9, w1, TextColor.Factory.fromString(Constants.YELLOW), TextColor.ANSI.CYAN);
         gui.drawString(12, 10, w2, TextColor.Factory.fromString(Constants.YELLOW), TextColor.ANSI.CYAN);
