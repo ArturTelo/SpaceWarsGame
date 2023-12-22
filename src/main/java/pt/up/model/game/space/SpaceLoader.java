@@ -113,15 +113,15 @@ public class SpaceLoader extends SpaceFactory {
     }
 
     @Override
-    protected List<CelGro> createCeiGro() {
-        List<CelGro> celgro = new ArrayList<>();
+    protected List<CeiGro> createCeiGro() {
+        List<CeiGro> celgroes = new ArrayList<>();
 
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '-') celgro.add(new CelGro(x, y));
+                if (line.charAt(x) == '-') celgroes.add(new CeiGro(x, y));
         }
-        return celgro;
+        return celgroes;
     }
 
 

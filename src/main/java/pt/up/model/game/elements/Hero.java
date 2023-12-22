@@ -7,13 +7,15 @@ public class Hero extends Element {
 
     private boolean isShooting = false;
 
-
     public Hero(int x, int y) {
         super(x, y);
     }
-    public int getScore(){return score;}
 
-    public void incrementHeroScore(int enemyPoints){
+    public int getScore() {
+        return score;
+    }
+
+    public void incrementHeroScore(int enemyPoints) {
         score += enemyPoints;
     }
 
@@ -25,15 +27,19 @@ public class Hero extends Element {
         health++;
     }
 
-    public boolean getIsShooting(){
+    public void setHeroHealth(int health) {
+        this.health = health;
+    }
+
+    public boolean getIsShooting() {
         return this.isShooting;
     }
 
-    public void createShot(){
+    public void createShot() {
         this.isShooting = true;
     }
 
-    public void delShot(){
+    public void delShot() {
         this.isShooting = false;
     }
 
@@ -45,9 +51,7 @@ public class Hero extends Element {
         return coins;
     }
 
-
     public void incrementHeroCoins() {
         coins++;
     }
-
 }
