@@ -2,15 +2,18 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
+import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Delta;
+import pt.up.model.game.elements.enemy.EnemyShot;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class DeltaController extends GammaController{
     private long lastMovement;
-
+    private int i;
     public DeltaController(Space space) {
         super(space);
         this.lastMovement = 0;
@@ -36,6 +39,47 @@ public class DeltaController extends GammaController{
         }
         if(countpositions==53){countpositions=0;}
         chagedirection();
+        if(getModel().getDeltas().size()!=0) {
+            Random random = new Random();
+            if (random.nextInt(200) == 3) {
+                Random random1 = new Random();
+                i = random1.nextInt(getModel().getDeltas().size());
+                createEnemyShot(i);
+            }
+            for (Delta element : getModel().getDeltas()) {
+                if (element.getIsShooting()) {
+                    moveShotY();
+                    Position position = getModel().getEnemyShot().getPosition();
+                    if (getModel().getEnemyShot().getPosition().getY() > 32) {
+                        element.delShot();
+                    }
+                    if (getModel().collideHero(position)) {
+                        getModel().getHero().reduceHeroHealth(1);
+                        element.delShot();
+                    }
+                    if (getModel().collideBarriers(position)) {
+                        element.delShot();
+                    }
+                }
+            }
+        }
+    }
+    public void moveShotY(){
+        moveShot(getModel().getEnemyShot().getPosition().getDown());
+    }
+
+    private void moveShot(Position position) {
+        if (getModel().isEmpty(position)) {
+            getModel().getEnemyShot().setPosition(position);
+        }
+    }
+
+    private void createEnemyShot(int i) {
+        if(!getModel().getDeltas().get(i).getIsShooting())
+        {
+            getModel().setEnemyShot(new EnemyShot(getModel().getDeltas().get(i).getPosition().getX(),getModel().getDeltas().get(i).getPosition().getY()));
+            getModel().getDeltas().get(i).createShot();
+        }
     }
 
     private void move(Delta gamma, Position position) {

@@ -9,7 +9,7 @@ public class LivesView implements ElementViewer<Hero> {
 
     @Override
     public void draw(Hero hero, GUI gui) {
-        String scoreTitle = "Lives";
+        String scoreTitle = "LIVESul";
 
         gui.drawString(65, 1, scoreTitle, TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
 

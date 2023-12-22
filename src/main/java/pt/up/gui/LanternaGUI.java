@@ -59,7 +59,7 @@ public class LanternaGUI implements GUI {
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/main.ttf");
+        URL resource = getClass().getClassLoader().getResource("fonts/SpaceWarsFinal3.otf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -97,7 +97,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawHeroShot(Position position){
-        drawCharacter(position.getX(), position.getY(), 'I', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), 's', "#FFFFFF");
     }
 
     @Override
@@ -139,7 +139,11 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawBossShot(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'I', "#FF0000");
+        drawCharacter(position.getX(), position.getY(), 's', "#FF0000");
+    }
+    @Override
+    public void drawEnemyShot(Position position) {
+        drawCharacter(position.getX(), position.getY(), 's', "#FF0000");
     }
 
     @Override
@@ -165,7 +169,8 @@ public class LanternaGUI implements GUI {
         TextGraphics textGraphics = screen.newTextGraphics();
 
         textGraphics.setBackgroundColor(TextColor.ANSI.CYAN);
-        textGraphics.fill(' ');
+        textGraphics.setForegroundColor(TextColor.ANSI.CYAN);
+        textGraphics.fill('u');
     }
 
     @Override

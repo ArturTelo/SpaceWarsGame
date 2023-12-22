@@ -9,6 +9,7 @@ import pt.up.states.MainMenuState;
 
 import java.io.IOException;
 
+
 public class SpaceController extends GameController {
     private final HeroController heroController;
     private final AlphaController alphaController;
@@ -16,31 +17,16 @@ public class SpaceController extends GameController {
     private final GammaController gammaController;
     private final BossController bossController;
     private final DeltaController deltaController;
-/*
-
-
-    private final BetaController betaController;
-    private final BossController bossController;
-    private final HeroShootController hshootController;
-    private final EnemyShootController eshootController;
-    private final CoinController coinController;*/
 
     public SpaceController(Space space) {
         super(space);
         this.heroController = new HeroController(space);
-        this.alphaController=new AlphaController(space);
-        this.betaController=new BetaController(space);
-        this.gammaController=new GammaController(space);
-        this.deltaController= new DeltaController(space);
+        this.alphaController = new AlphaController(space);
+        this.betaController = new BetaController(space);
+        this.gammaController = new GammaController(space);
+        this.deltaController = new DeltaController(space);
         this.bossController = new BossController(space);
-        /*
-
-        this.bossController=new BossController(space);
-        this.hshootController=new HeroShootController(space);
-        this.eshootController=new EnemyShootController(space);
-        this.coinController= new CoinController(Space);*/
     }
-
 
     public void step(pt.up.Space game, GUI.ACTION action, long time) throws IOException {
         boolean winningCondition = getModel().getAlphas().isEmpty() && getModel().getBetas().isEmpty() &&

@@ -9,7 +9,7 @@ public class ScoreView implements ElementViewer<Hero> {
 
     @Override
     public void draw(Hero hero, GUI gui) {
-        String scoreTitle = "Score";
+        String scoreTitle = "SCORE";
 
         gui.drawString(6, 1, scoreTitle, TextColor.Factory.fromString(Constants.WHITE), TextColor.ANSI.CYAN);
 

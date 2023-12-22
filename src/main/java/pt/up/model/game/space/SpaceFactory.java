@@ -10,8 +10,9 @@ public abstract class SpaceFactory {
         Space space = new Space(getWidth(), getHeight());
 
         space.setHero(createHero());
-        space.setHeroShot(createHeroShot());
-        space.setBossShot(createBossShot());
+        //space.setHeroShot(createHeroShot());
+        //space.setBossShot(createBossShot());
+        //space.setEnemyShot(createEnemyShot());
         space.setHero(createHero());
         space.setAlphas(createAlphas());
         space.setBetas(createBetas());
@@ -48,9 +49,10 @@ public abstract class SpaceFactory {
 
     protected abstract Hero createHero();
 
-    protected abstract HeroShot createHeroShot();
+    //protected abstract HeroShot createHeroShot();
 
-    protected abstract BossShot createBossShot();
+    //protected abstract BossShot createBossShot();
+    //protected abstract EnemyShot createEnemyShot();
 
 
 }

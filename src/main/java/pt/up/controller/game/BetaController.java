@@ -2,15 +2,16 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
-import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
+import pt.up.model.game.elements.enemy.EnemyShot;
 import pt.up.model.game.space.Space;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class BetaController extends GameController{
     private long lastMovement;
-
+    private int i;
     public BetaController(Space space) {
         super(space);
         this.lastMovement = 0;
@@ -36,6 +37,48 @@ public class BetaController extends GameController{
         }
         if(countpositions==53){countpositions=0;}
         chagedirection();
+        if(getModel().getBetas().size()!=0) {
+            Random random = new Random();
+            if (random.nextInt(300) == 3) {
+                Random random1 = new Random();
+                i = random1.nextInt(getModel().getBetas().size());
+                createEnemyShot(i);
+            }
+            for (Beta element : getModel().getBetas()) {
+                if (element.getIsShooting()) {
+                    moveShotY();
+                    Position position = getModel().getEnemyShot().getPosition();
+                    if (getModel().getEnemyShot().getPosition().getY() > 32) {
+                        element.delShot();
+                    }
+                    if (getModel().collideHero(position)) {
+                        getModel().getHero().reduceHeroHealth(1);
+                        element.delShot();
+                    }
+                    if (getModel().collideBarriers(position)) {
+                        element.delShot();
+                    }
+                }
+            }
+        }
+    }
+    public void moveShotY(){
+        moveShot(getModel().getEnemyShot().getPosition().getDown());
+    }
+
+    private void moveShot(Position position) {
+        if (getModel().isEmpty(position)) {
+            getModel().getEnemyShot().setPosition(position);
+            //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
+        }
+    }
+
+    private void createEnemyShot(int i) {
+        if(!getModel().getBetas().get(i).getIsShooting())
+        {
+            getModel().setEnemyShot(new EnemyShot(getModel().getBetas().get(i).getPosition().getX(),getModel().getBetas().get(i).getPosition().getY()));
+            getModel().getBetas().get(i).createShot();
+        }
     }
 
     private void move(Beta element, Position position) {
