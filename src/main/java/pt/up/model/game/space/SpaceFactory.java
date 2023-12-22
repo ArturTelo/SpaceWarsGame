@@ -40,7 +40,7 @@ public abstract class SpaceFactory {
 
     protected abstract List<Barrier> createBarriers();
 
-    protected abstract List<CelGro> createCeiGro();
+    protected abstract List<CeiGro> createCeiGro();
 
     protected abstract List<Lives> createLives();
 

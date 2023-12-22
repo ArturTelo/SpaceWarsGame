@@ -20,37 +20,28 @@ class AlphaViewerTest {
     void setUp() {
         alphaViewer = new AlphaViewer();
         mockGui = Mockito.mock(GUI.class);
-        alpha = new Alpha(0, 0); // Pass appropriate x and y values for testing
+        alpha = new Alpha(0, 0);
     }
 
     @Test
     void drawAlphaShouldCallDrawAlphaOnGui() {
-        // Arrange
 
-        // Act
         alphaViewer.draw(alpha, mockGui);
 
-        // Assert
         verify(mockGui, times(1)).drawAlpha(any()); // Verify that drawAlpha was called exactly once with any argument
     }
 
     @Test
     void drawAlphaShouldHandleNullElement() {
-        // Arrange
-
-        // Act & Assert
         assertDoesNotThrow(() -> alphaViewer.draw(null, mockGui));
         verify(mockGui, never()).drawAlpha(any()); // Verify that drawAlpha was never called
     }
 
     @Test
     void drawAlphaShouldSetCorrectHealthAndPoints() {
-        // Arrange
 
-        // Act
         alphaViewer.draw(alpha, mockGui);
 
-        // Assert
         assertEquals(1, alpha.getHealth());
         assertEquals(10, alpha.getPoints());
     }
