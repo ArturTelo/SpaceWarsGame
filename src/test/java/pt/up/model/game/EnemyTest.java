@@ -15,4 +15,32 @@ public class EnemyTest {
 
         Assertions.assertEquals(25, enemyPoints);
     }
+
+    @Test
+    public void testIsShootingDefault() {
+        Enemy enemy = new Enemy(0, 0);
+
+        Assertions.assertFalse(enemy.getIsShooting());
+    }
+
+
+
+    @Test
+    public void checkIsShooting(){
+        Enemy enemy = new Enemy(1,1);
+
+        enemy.createShot();
+        boolean bossShooting = enemy.getIsShooting();
+
+        Assertions.assertTrue(bossShooting);
+    }
+    @Test
+    public void checkShotDeleted(){
+        Enemy enemy = new Enemy(1,1);
+
+        enemy.delShot();
+        boolean bossShooting = enemy.getIsShooting();
+
+        Assertions.assertFalse(bossShooting);
+    }
 }
