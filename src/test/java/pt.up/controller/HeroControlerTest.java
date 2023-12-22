@@ -23,16 +23,20 @@ public class HeroControlerTest {
     Space space;
     HeroController heroController;
     Hero hero;
-
     @BeforeEach
-    void setUp() {
+    void setUp2() {
         space = new Space(10, 10);
-        space.setWalls(Arrays.asList((new Wall(0, 1))));
+        space.setWalls(new ArrayList<>(Arrays.asList((new Wall(0, 1)))));
+        space.setBetas(new ArrayList<>(Arrays.asList(new Beta(2, 4))));
+        space.setGammas(new ArrayList<>(Arrays.asList(new Gamma(3, 4))));
+        space.setAlphas(new ArrayList<>(Arrays.asList(new Alpha(4, 4))));
+        space.setBarriers(new ArrayList<>(Arrays.asList(new Barrier(5, 4))));
+        space.setBoss(new Boss(6,4));
+        space.setDeltas(new ArrayList<>(Arrays.asList(new Delta(7, 4))));
         hero = new Hero(5, 5);
         space.setHero(hero);
         heroController = new HeroController(space);
     }
-
     @Test
     void moveHeroRightFree() {
         heroController.moveHeroRight();
@@ -80,14 +84,68 @@ public class HeroControlerTest {
         heroController.moveHeroShootY();
         assertEquals(new Position(5, 5), space.getHeroShot().getPosition());
     }
+
     @Test
-    void shotcolides() {
-        space.setBarriers(Arrays.asList(new Barrier(5, 4)));
-        space.setBoss(new Boss(0,1));
+    void shotcolidesBarriers() {
         heroController.createHeroShoot();
         heroController.moveHeroShootY();
         heroController.shotcolides(space.getHeroShot().getPosition());
         assertTrue(space.getBarriers().isEmpty());
         assertFalse(space.getHero().getIsShooting());
     }
+    @Test
+    void shotcolidesAlphas() {
+        hero.setPosition(new Position(4,5));
+        heroController.createHeroShoot();
+        heroController.moveHeroShootY();
+        heroController.shotcolides(space.getHeroShot().getPosition());
+        assertTrue(space.getAlphas().isEmpty());
+        assertFalse(space.getHero().getIsShooting());
+    }
+    @Test
+    void shotcolidesBetas(){
+        hero.setPosition(new Position(2,5));
+        heroController.createHeroShoot();
+        heroController.moveHeroShootY();
+        heroController.shotcolides(space.getHeroShot().getPosition());
+        assertTrue(space.getBetas().isEmpty());
+        assertFalse(space.getHero().getIsShooting());
+    }
+    @Test
+    void shotcolidesGammas(){
+        hero.setPosition(new Position(3,5));
+        heroController.createHeroShoot();
+        heroController.moveHeroShootY();
+        heroController.shotcolides(space.getHeroShot().getPosition());
+        assertTrue(space.getGammas().isEmpty());
+        assertFalse(space.getHero().getIsShooting());
+    }
+    @Test
+    void shotcolidesDeltas(){
+        hero.setPosition(new Position(7,5));
+        heroController.createHeroShoot();
+        heroController.moveHeroShootY();
+        heroController.shotcolides(space.getHeroShot().getPosition());
+        assertTrue(space.getDeltas().isEmpty());
+        assertFalse(space.getHero().getIsShooting());
+    }
+    @Test
+    void shotcolidesBoss(){
+        hero.setPosition(new Position(6,5));
+        heroController.createHeroShoot();
+        heroController.moveHeroShootY();
+        heroController.shotcolides(space.getHeroShot().getPosition());
+        assertEquals(new Position(999,999), space.getBoss().getPosition());
+        assertFalse(space.getHero().getIsShooting());
+    }
+    @Test
+void shotcolidesNothing(){
+        hero.setPosition(new Position(8,5));
+        heroController.createHeroShoot();
+        heroController.moveHeroShootY();
+        heroController.shotcolides(space.getHeroShot().getPosition());
+        assertEquals(new Position(8,4), space.getHeroShot().getPosition());
+        assertTrue(space.getHero().getIsShooting());
+    }
+
 }

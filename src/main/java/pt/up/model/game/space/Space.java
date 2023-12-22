@@ -155,24 +155,18 @@ public class Space {
     }
 
     public boolean collideAlphas(Position position) {
+        if(alphas == null){
+            alphas = new ArrayList<>();
+            return false;
+        }
         Iterator<Alpha> iterator = alphas.iterator();
-
         while (iterator.hasNext()) {
             Alpha alpha = iterator.next();
 
             if (alpha.getPosition().equals(position)) {
                 iterator.remove();
                 getHero().incrementHeroScore(alpha.getPoints());
-                return true;
-            }
-        }
-        return false;
-    }
 
-
-    public boolean collideWalls(Position position) {
-        for (Wall wall : walls) {
-            if (wall.getPosition().equals(position)) {
                 return true;
             }
         }
@@ -180,7 +174,10 @@ public class Space {
     }
 
     public boolean collideBetas(Position position) {
-
+        if(betas == null){
+            betas = new ArrayList<>();
+            return false;
+        }
         Iterator<Beta> iterator = betas.iterator();
 
         while (iterator.hasNext()) {
@@ -189,6 +186,7 @@ public class Space {
             if (beta.getPosition().equals(position)) {
                 iterator.remove();
                 getHero().incrementHeroScore(beta.getPoints());
+                setBetas(betas);
                 return true;
             }
         }
@@ -196,9 +194,11 @@ public class Space {
     }
 
     public boolean collideDeltas(Position position) {
-
+        if(deltas == null){
+            deltas = new ArrayList<>();
+            return false;
+        }
         Iterator<Delta> iterator = deltas.iterator();
-
         while (iterator.hasNext()) {
             Delta delta = iterator.next();
 
@@ -212,8 +212,11 @@ public class Space {
     }
 
     public boolean collideGammas(Position position) {
+        if (gammas == null) {
+            gammas = new ArrayList<>(); // Initialize with an empty list
+            return false; // No collision with empty list
+        }
         Iterator<Gamma> iterator = gammas.iterator();
-
         while (iterator.hasNext()) {
             Gamma gamma = iterator.next();
 
@@ -226,24 +229,10 @@ public class Space {
         return false;
     }
     public boolean collideBarriers(Position position) {
-        // Convert the barriers list to an ArrayList
-        List<Barrier> barriersList = new ArrayList<>(barriers);
-
-        // Use an iterator on the ArrayList
-        Iterator<Barrier> iterator = barriersList.iterator();
-
-        while (iterator.hasNext()) {
-            Barrier barrier = iterator.next();
-
-            if (barrier.getPosition().equals(position)) {
-                iterator.remove(); // This will work on the ArrayList
-                setBarriers(barriersList); // Convert back to a List
-                return true;
-            }
+        if (barriers == null) {
+            barriers = new ArrayList<>(); // Initialize with an empty list
+            return false; // No collision with empty list
         }
-        return false;
-    }
-    /*public boolean collideBarriers(Position position) {
         Iterator<Barrier> iterator =barriers.iterator();
 
         while (iterator.hasNext()) {
@@ -255,10 +244,10 @@ public class Space {
             }
         }
         return false;
-    }*/
+    }
 
     public boolean collideBoss(Position position) {
-        if (boss.getPosition().equals(position)) {
+        if (boss != null && boss.getPosition().equals(position)) {
             getHero().incrementHeroScore(boss.getPoints());
             boss = new Boss(999,999);
             return true;
@@ -277,6 +266,14 @@ public class Space {
     public boolean collideCeiGro(Position position) {
         for (CeiGro ceiGro : ceilingground) {
             if (ceiGro.getPosition().equals(position)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean collideWalls(Position position) {
+        for (Wall wall : walls) {
+            if (wall.getPosition().equals(position)) {
                 return true;
             }
         }
