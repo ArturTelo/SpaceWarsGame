@@ -14,7 +14,7 @@ public class GameOver {
     }
 
     public static String generateRandomString() {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         int length = 10;
         StringBuilder randomString = new StringBuilder();
 
