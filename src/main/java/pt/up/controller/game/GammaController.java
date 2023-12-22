@@ -2,6 +2,7 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
+import pt.up.model.game.elements.enemy.Enemy;
 import pt.up.model.game.elements.enemy.EnemyShot;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
@@ -25,6 +26,22 @@ public class GammaController extends GameController{
         else if(side==0 && changed){side=1;}
         changed=false;
     }
+    private void shotcolides(Enemy element) {
+        if(element.getIsShooting()) {
+            moveShotY();
+            Position position = getModel().getEnemyShot().getPosition();
+            if(getModel().getEnemyShot().getPosition().getY() > 32) {
+                element.delShot();
+            }
+            if(getModel().collideHero(position)){
+                getModel().getHero().reduceHeroHealth(1);
+                element.delShot();
+            }
+            if(getModel().collideBarriers(position)){
+                element.delShot();
+            }
+        }
+    }
     @Override
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
         changed=false;
@@ -46,20 +63,7 @@ public class GammaController extends GameController{
                 createEnemyShot(i);
             }
             for (Gamma element : getModel().getGammas()) {
-                if (element.getIsShooting()){
-                    moveShotY();
-                    Position position = getModel().getEnemyShot().getPosition();
-                    if (getModel().getEnemyShot().getPosition().getY() > 32) {
-                        element.delShot();
-                    }
-                    if (getModel().collideHero(position)) {
-                        getModel().getHero().reduceHeroHealth(1);
-                        element.delShot();
-                    }
-                    if (getModel().collideBarriers(position)) {
-                        element.delShot();
-                    }
-                }
+                shotcolides(element);
             }
         }
     }

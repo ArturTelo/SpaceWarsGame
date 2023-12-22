@@ -4,10 +4,7 @@ package pt.up.controller.game;
 import pt.up.gui.GUI;
 import pt.up.model.Position;
 import pt.up.model.game.elements.Element;
-import pt.up.model.game.elements.enemy.Alpha;
-import pt.up.model.game.elements.enemy.BossShot;
-import pt.up.model.game.elements.enemy.EnemyShot;
-import pt.up.model.game.elements.enemy.Gamma;
+import pt.up.model.game.elements.enemy.*;
 import pt.up.model.game.space.Space;
 
 
@@ -30,6 +27,22 @@ public class AlphaController extends GameController{
         else if(side==0 && changed){side=1;}
         changed=false;
     }
+    private void shotcolides(Enemy element) {
+        if(element.getIsShooting()) {
+            moveShotY();
+            Position position = getModel().getEnemyShot().getPosition();
+            if(getModel().getEnemyShot().getPosition().getY() > 32) {
+                element.delShot();
+            }
+            if(getModel().collideHero(position)){
+                getModel().getHero().reduceHeroHealth(1);
+                element.delShot();
+            }
+            if(getModel().collideBarriers(position)){
+                element.delShot();
+            }
+        }
+    }
     @Override
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
         changed=false;
@@ -51,25 +64,25 @@ public class AlphaController extends GameController{
                 createEnemyShot(i);
             }
             for(Alpha element: getModel().getAlphas()){
-                if(element.getIsShooting()) {
-                    moveShotY();
-                    Position position = getModel().getEnemyShot().getPosition();
-                    if(getModel().getEnemyShot().getPosition().getY() > 32)
-                    {
-                        element.delShot();
-                    }
-                    if(getModel().collideHero(position)){
-                        getModel().getHero().reduceHeroHealth(1);
-                        element.delShot();
-                    }
-                    if(getModel().collideBarriers(position)){
-                        element.delShot();
-                    }
-                }
+                shotcolides(element);
+
             }
         }
     }
-
+    /*if(element.getIsShooting()) {
+                   moveShotY();
+                   Position position = getModel().getEnemyShot().getPosition();
+                   if(getModel().getEnemyShot().getPosition().getY() > 32) {
+                       element.delShot();
+                   }
+                   if(getModel().collideHero(position)){
+                       getModel().getHero().reduceHeroHealth(1);
+                       element.delShot();
+                   }
+                   if(getModel().collideBarriers(position)){
+                       element.delShot();
+                   }
+               }*/
     public void moveShotY(){
         moveShot(getModel().getEnemyShot().getPosition().getDown());
     }

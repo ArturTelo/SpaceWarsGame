@@ -33,50 +33,47 @@ public class HeroController extends GameController {
     private void moveHero(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getHero().setPosition(position);
-            //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
         }
     }
 
     private void moveHeroShot(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getHeroShot().setPosition(position);
-            //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
         }
     }
-
+    public void shotcolides(Position position) {
+        if(getModel().collideBarriers(position)){
+            getModel().getHero().delShot();
+        }
+        if(getModel().collideBoss(position)){
+            getModel().getHero().delShot();
+        }
+        if(getModel().collideDeltas(position)){
+            getModel().getHero().delShot();
+        }
+        if(getModel().collideAlphas(position)){
+            getModel().getHero().delShot();
+        }
+        if(getModel().collideGammas(position)){
+            getModel().getHero().delShot();
+        }
+        if(getModel().collideBetas(position)){
+            getModel().getHero().delShot();
+        }//fica uma javardice mas é necessario
+        if(getModel().getHeroShot().getPosition().getY() < 1)
+        {
+            getModel().getHero().delShot();
+        }
+    }
     @Override
     public void step(pt.up.Space game, GUI.ACTION action, long time) {
         if (action == GUI.ACTION.RIGHT) moveHeroRight();
         if (action == GUI.ACTION.LEFT) moveHeroLeft();
         if (action == GUI.ACTION.SHOOT) createHeroShoot();
 
-        if(getModel().getHero().getIsShooting()) {
+        if (getModel().getHero().getIsShooting()) {
             moveHeroShootY();
             Position position = getModel().getHeroShot().getPosition();
-            if(getModel().collideBarriers(position)){
-                getModel().getHero().delShot();
-            }
-            if(getModel().collideBoss(position)){
-                getModel().getHero().delShot();
-            }
-            if(getModel().collideDeltas(position)){
-                getModel().getHero().delShot();
-            }
-            if(getModel().collideAlphas(position)){
-                getModel().getHero().delShot();
-            }
-            if(getModel().collideGammas(position)){
-                getModel().getHero().delShot();
-            }
-            if(getModel().collideBetas(position)){
-                getModel().getHero().delShot();
-            }//fica uma javardice mas é necessario
-            if(getModel().getHeroShot().getPosition().getY() < 1)
-            {
-                getModel().getHero().delShot();
-            }
-
+            shotcolides(position);
         }
-
-    }
-}
+    }}

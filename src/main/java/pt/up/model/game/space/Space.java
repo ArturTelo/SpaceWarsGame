@@ -5,6 +5,7 @@ import pt.up.model.game.elements.*;
 import pt.up.model.game.elements.enemy.*;
 import pt.up.utils.Configuration;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -224,9 +225,26 @@ public class Space {
         }
         return false;
     }
-
     public boolean collideBarriers(Position position) {
-        Iterator<Barrier> iterator = barriers.iterator();
+        // Convert the barriers list to an ArrayList
+        List<Barrier> barriersList = new ArrayList<>(barriers);
+
+        // Use an iterator on the ArrayList
+        Iterator<Barrier> iterator = barriersList.iterator();
+
+        while (iterator.hasNext()) {
+            Barrier barrier = iterator.next();
+
+            if (barrier.getPosition().equals(position)) {
+                iterator.remove(); // This will work on the ArrayList
+                setBarriers(barriersList); // Convert back to a List
+                return true;
+            }
+        }
+        return false;
+    }
+    /*public boolean collideBarriers(Position position) {
+        Iterator<Barrier> iterator =barriers.iterator();
 
         while (iterator.hasNext()) {
             Barrier barrier = iterator.next();
@@ -237,7 +255,7 @@ public class Space {
             }
         }
         return false;
-    }
+    }*/
 
     public boolean collideBoss(Position position) {
         if (boss.getPosition().equals(position)) {
