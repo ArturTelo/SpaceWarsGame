@@ -7,6 +7,4 @@ public class Gamma extends Enemy {
         health=1;
         points=25;
     }
-
-
 }

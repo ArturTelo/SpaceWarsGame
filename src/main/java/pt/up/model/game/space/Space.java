@@ -24,7 +24,7 @@ public class Space {
     private List<Wall> walls;
     private List<Beta> betas;
     private List<Barrier> barriers;
-    private List<CelGro> ceilingground;
+    private List<CeiGro> ceilingground;
 
     public Space(int width, int height) {
         this.width = width;
@@ -78,7 +78,7 @@ public class Space {
         return barriers;
     }
 
-    public List<CelGro> getCeiGro() {
+    public List<CeiGro> getCeiGro() {
         return ceilingground;
     }
 
@@ -131,7 +131,7 @@ public class Space {
         this.barriers = barriers;
     }
 
-    public void setCeiGro(List<CelGro> ceilingground) {
+    public void setCeiGro(List<CeiGro> ceilingground) {
         this.ceilingground = ceilingground;
     }
 
@@ -251,8 +251,8 @@ public class Space {
     }
 
     public boolean collideCeiGro(Position position) {
-        for (CelGro celGro : ceilingground) {
-            if (celGro.getPosition().equals(position)) {
+        for (CeiGro ceiGro : ceilingground) {
+            if (ceiGro.getPosition().equals(position)) {
                 return true;
             }
         }

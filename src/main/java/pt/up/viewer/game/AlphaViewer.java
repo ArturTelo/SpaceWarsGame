@@ -5,7 +5,9 @@ import pt.up.model.game.elements.enemy.Alpha;
 
 public class AlphaViewer implements ElementViewer<Alpha> {
     @Override
-    public void draw(Alpha element, GUI gui) {
-        gui.drawAlpha(element.getPosition());
+    public void draw(Alpha alpha, GUI gui) {
+        if (alpha != null) {
+            gui.drawAlpha(alpha.getPosition());
+        }
     }
 }
