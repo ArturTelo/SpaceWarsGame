@@ -25,7 +25,7 @@ public class Space {
         this.state = state;
     }
 
-    private void start() throws IOException {
+    public void start() throws IOException {
         int FPS = 60;
         int frameTime = 1000 / FPS;
 
