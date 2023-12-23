@@ -15,10 +15,6 @@ pitest {
     junit5PluginVersion = '0.12'
 }
 
-application {
-    mainClass.set('pt.up.Space')
-}
-
 
 dependencies {
     testImplementation platform("org.junit:junit-bom:5.9.1")
