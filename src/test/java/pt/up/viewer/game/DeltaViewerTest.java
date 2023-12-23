@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pt.up.gui.GUI;
 import pt.up.model.game.elements.enemy.Delta;
+
 import static org.mockito.Mockito.*;
 
 class DeltaViewerTest {

@@ -3,8 +3,10 @@ package pt.up;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import pt.up.utils.Music;
+
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MusicTest {

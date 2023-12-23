@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import pt.up.gui.GUI;
 import pt.up.model.menu.CreditsMenu;
+
 import static org.mockito.Mockito.*;
 
 class CreditsViewerTest {
