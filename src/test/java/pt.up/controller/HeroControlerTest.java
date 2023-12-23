@@ -24,7 +24,7 @@ public class HeroControlerTest {
     HeroController heroController;
     Hero hero;
     @BeforeEach
-    void setUp2() {
+    void setUp() {
         space = new Space(10, 10);
         space.setWalls(new ArrayList<>(Arrays.asList((new Wall(0, 1)))));
         space.setBetas(new ArrayList<>(Arrays.asList(new Beta(2, 4))));
