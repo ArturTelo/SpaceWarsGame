@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainMenu {
-    private final List<String> entries;
-    private int currentEntry = 0;
+    public List<String> entries;
+    public int currentEntry = 0;
 
     public MainMenu() {
         this.entries = Arrays.asList("PLAY", "HIGHSCORES", "CREDITS", "EXIT");
@@ -58,5 +58,9 @@ public class MainMenu {
 
     public int getNumberEntries() {
         return this.entries.size();
+    }
+    public void setEntries(List<String> entries) {
+        this.entries.clear();
+        this.entries.addAll(entries);
     }
 }

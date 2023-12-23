@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'application'
+    id 'groovy'
     id 'info.solidsoft.pitest' version '1.6.0'
 }
 
@@ -21,7 +21,7 @@ application {
 
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation platform("org.junit:junit-bom:5.9.1")
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine'
     implementation 'com.googlecode.lanterna:lanterna:3.1.1'
@@ -29,8 +29,13 @@ dependencies {
     testImplementation 'org.mockito:mockito-inline:3.12.4'
 }
 
-test {
-    useJUnitPlatform {
-        includeEngines('junit-jupiter', 'jqwik')
-    }
+
+pitest {
+    junit5PluginVersion = '0.12'
+    pitestVersion = '1.7.0'
+    targetClasses = ['pt.up*']
+}
+
+tasks.test {
+    useJUnitPlatform()
 }

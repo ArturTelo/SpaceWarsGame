@@ -250,6 +250,7 @@ public class Space {
         if (boss != null && boss.getPosition().equals(position)) {
             getHero().incrementHeroScore(boss.getPoints());
             boss = new Boss(999,999);
+            boss.setAlive(false);
             return true;
         }
         return false;
