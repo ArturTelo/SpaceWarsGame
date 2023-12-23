@@ -80,12 +80,15 @@ public class AlphaControlerTest {
     void moveRnDown() throws IOException {
         alphaController.setSide(1);
         alphaController.setCountpositions(50);
+        alphaController.getModel().setHero(new Hero(3,4));
         alphaController.step(space1,GUI.ACTION.NONE,1000);
         assertEquals(space.getAlphas().get(0).getPosition(),new Position(3,3));
         assertEquals(space.getAlphas().get(1).getPosition(),new Position(5,3));
+        alphaController.getModel().setHero(new Hero(3,4));
         alphaController.step(space1,GUI.ACTION.NONE,1301);
         assertEquals(space.getAlphas().get(0).getPosition(),new Position(3,3));
         assertEquals(space.getAlphas().get(1).getPosition(),new Position(5,3));
+        alphaController.getModel().setHero(new Hero(3,4));
         alphaController.step(space1,GUI.ACTION.NONE,1602);
         assertEquals(space.getAlphas().get(0).getPosition(),new Position(3,4));
         assertEquals(space.getAlphas().get(1).getPosition(),new Position(5,4));
