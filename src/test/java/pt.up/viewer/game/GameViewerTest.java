@@ -2,27 +2,61 @@ package pt.up.viewer.game;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import pt.up.gui.GUI;
 import pt.up.model.game.elements.*;
 import pt.up.model.game.elements.enemy.*;
-import pt.up.model.game.space.Space;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 class GameViewerTest {
 
-    private GameViewer gameViewer;
+    @Mock
     private GUI gui;
-    private Space space;
+
+    @Mock
+    private HeroViewer heroViewerMock;
+
+    @Mock
+    private BossViewer bossViewerMock;
+
+    @Mock
+    private HeroShotViewer heroShotViewerMock;
+
+    @Mock
+    private BossShotViewer bossShotViewerMock;
+
+    @Mock
+    private AlphaViewer alphaViewerMock;
+
+    @Mock
+    private BetaViewer betaViewerMock;
+
+    @Mock
+    private GammaViewer gammaViewerMock;
+
+    @Mock
+    private CeiGrouViewer ceiGrouViewerMock;
+
+    @Mock
+    private BarrierViewer barrierViewerMock;
+
+    @Mock
+    private DeltaViewer deltaViewerMock;
+
+    @InjectMocks
+    private GameViewer gameViewer;
 
     @BeforeEach
     void setUp() {
-        space = mock(Space.class);
-        gameViewer = new GameViewer(space);
-        gui = mock(GUI.class);
+        MockitoAnnotations.initMocks(this);
     }
 
     @Test
@@ -39,28 +73,17 @@ class GameViewerTest {
         List<Barrier> barriers = new ArrayList<>();
         List<Delta> deltas = new ArrayList<>();
 
-        when(space.getHero()).thenReturn(hero);
-        when(space.getHeroShot()).thenReturn(heroShot);
-        when(space.getBoss()).thenReturn(boss);
-        when(space.getBossShot()).thenReturn(bossShot);
-        when(space.getWalls()).thenReturn(walls);
-        when(space.getAlphas()).thenReturn(alphas);
-        when(space.getBetas()).thenReturn(betas);
-        when(space.getGammas()).thenReturn(gammas);
-        when(space.getCeiGro()).thenReturn(ceiGroList);
-        when(space.getBarriers()).thenReturn(barriers);
-        when(space.getDeltas()).thenReturn(deltas);
-
-        HeroViewer heroViewerMock = mock(HeroViewer.class);
-        BossViewer bossViewerMock = mock(BossViewer.class);
-        HeroShotViewer heroShotViewerMock = mock(HeroShotViewer.class);
-        BossShotViewer bossShotViewerMock = mock(BossShotViewer.class);
-        AlphaViewer alphaViewerMock = mock(AlphaViewer.class);
-        BetaViewer betaViewerMock = mock(BetaViewer.class);
-        GammaViewer gammaViewerMock = mock(GammaViewer.class);
-        CeiGrouViewer ceiGrouViewerMock = mock(CeiGrouViewer.class);
-        BarrierViewer barrierViewerMock = mock(BarrierViewer.class);
-        DeltaViewer deltaViewerMock = mock(DeltaViewer.class);
+        doReturn(hero).when(gameViewer.getModel()).getHero();
+        doReturn(heroShot).when(gameViewer.getModel()).getHeroShot();
+        doReturn(boss).when(gameViewer.getModel()).getBoss();
+        doReturn(bossShot).when(gameViewer.getModel()).getBossShot();
+        doReturn(walls).when(gameViewer.getModel()).getWalls();
+        doReturn(alphas).when(gameViewer.getModel()).getAlphas();
+        doReturn(betas).when(gameViewer.getModel()).getBetas();
+        doReturn(gammas).when(gameViewer.getModel()).getGammas();
+        doReturn(ceiGroList).when(gameViewer.getModel()).getCeiGro();
+        doReturn(barriers).when(gameViewer.getModel()).getBarriers();
+        doReturn(deltas).when(gameViewer.getModel()).getDeltas();
 
         gameViewer.drawElements(gui);
 
