@@ -8,9 +8,7 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 
 ## Final Game
 
-<video src="src/main/resources/assets/spacewars.mp4" controls title="Heck yeah"></video>
-
-
+![Heck yeah](src/main/resources/assets/spacewars.gif)
 
 ## Mockups
 
