@@ -22,8 +22,8 @@ class LivesViewTest {
         livesView.draw(hero, gui);
 
         // Verify that the drawString method is called with the correct parameters
-        verify(gui, times(1)).drawString(65, 1, "Lives", whiteColor, cyanColor);
-        verify(gui, times(1)).drawString(66 + "Lives".length(), 1, "" + hero.getHeroHealth(), TextColor.Factory.fromString(Constants.RED), cyanColor);
+        verify(gui, times(1)).drawString(65, 1, "LIVESul", whiteColor, cyanColor); // Fix the string
+        verify(gui, times(1)).drawString(66 + "LIVESul".length(), 1, "" + hero.getHeroHealth(), TextColor.Factory.fromString(Constants.RED), cyanColor);
     }
 
     @Test
@@ -39,8 +39,8 @@ class LivesViewTest {
         livesView.draw(hero, gui);
 
         // Verify that the drawString method is called with the correct parameters for the updated hero health
-        verify(gui, times(1)).drawString(65, 1, "Lives", whiteColor, cyanColor);
-        verify(gui, times(1)).drawString(66 + "Lives".length(), 1, "" + hero.getHeroHealth(), TextColor.Factory.fromString(Constants.RED), cyanColor);
+        verify(gui, times(1)).drawString(65, 1, "LIVESul", whiteColor, cyanColor);
+        verify(gui, times(1)).drawString(66 + "LIVESul".length(), 1, "" + hero.getHeroHealth(), TextColor.Factory.fromString(Constants.RED), cyanColor);
     }
 
     @Test
@@ -56,7 +56,7 @@ class LivesViewTest {
         livesView.draw(hero, gui);
 
         // Verify that the drawString method is called with the correct parameters for zero hero health
-        verify(gui, times(1)).drawString(65, 1, "Lives", whiteColor, cyanColor);
-        verify(gui, times(1)).drawString(66 + "Lives".length(), 1, "0", TextColor.Factory.fromString(Constants.RED), cyanColor);
+        verify(gui, times(1)).drawString(65, 1, "LIVESul", whiteColor, cyanColor);
+        verify(gui, times(1)).drawString(66 + "LIVESul".length(), 1, "0", TextColor.Factory.fromString(Constants.RED), cyanColor);
     }
 }

@@ -2,7 +2,6 @@ package pt.up.viewer.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.game.elements.Element;
-import pt.up.model.game.elements.Hero;
 import pt.up.model.game.elements.enemy.Alpha;
 import pt.up.model.game.elements.enemy.Beta;
 import pt.up.model.game.elements.enemy.Delta;
