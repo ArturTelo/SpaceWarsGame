@@ -2,9 +2,15 @@
 
 [![jdk][openjdk-image]][openjdk-url]
 
-In this next-gen 2D game, you will be able to play a reimagined space invaders game, you will be able to play solo or local co-op, when playing local co-op both players will share the same screen and keyboard! There will be a lot of different enemies with different characteristics and therefore different difficulty.
+In this next-gen 2D game, you will be able to play a reimagined space invaders game, you will be able to play solo or local co-op, when playing local co-op both players will share the same screen and keyboard! There will be a lot of different enemies with different characteristics and therefore different difficulty. However the game is still in early access, so the single player mode is the only one available, local co-op will be patch soon!
 
 This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida Fonseca* (*up202207742@fe.up.pt*) and *Nuno França* (*up2018075530@fe.up.pt*) for LDTS 2023/2024.
+
+## Final Game
+
+<video src="src/main/resources/assets/spacewars.mp4" controls title="Heck yeah"></video>
+
+
 
 ## Mockups
 
