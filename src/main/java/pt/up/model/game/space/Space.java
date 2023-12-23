@@ -5,6 +5,7 @@ import pt.up.model.game.elements.*;
 import pt.up.model.game.elements.enemy.*;
 import pt.up.utils.Configuration;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -154,24 +155,18 @@ public class Space {
     }
 
     public boolean collideAlphas(Position position) {
+        if(alphas == null){
+            alphas = new ArrayList<>();
+            return false;
+        }
         Iterator<Alpha> iterator = alphas.iterator();
-
         while (iterator.hasNext()) {
             Alpha alpha = iterator.next();
 
             if (alpha.getPosition().equals(position)) {
                 iterator.remove();
                 getHero().incrementHeroScore(alpha.getPoints());
-                return true;
-            }
-        }
-        return false;
-    }
 
-
-    public boolean collideWalls(Position position) {
-        for (Wall wall : walls) {
-            if (wall.getPosition().equals(position)) {
                 return true;
             }
         }
@@ -179,7 +174,10 @@ public class Space {
     }
 
     public boolean collideBetas(Position position) {
-
+        if(betas == null){
+            betas = new ArrayList<>();
+            return false;
+        }
         Iterator<Beta> iterator = betas.iterator();
 
         while (iterator.hasNext()) {
@@ -188,6 +186,7 @@ public class Space {
             if (beta.getPosition().equals(position)) {
                 iterator.remove();
                 getHero().incrementHeroScore(beta.getPoints());
+                setBetas(betas);
                 return true;
             }
         }
@@ -195,9 +194,11 @@ public class Space {
     }
 
     public boolean collideDeltas(Position position) {
-
+        if(deltas == null){
+            deltas = new ArrayList<>();
+            return false;
+        }
         Iterator<Delta> iterator = deltas.iterator();
-
         while (iterator.hasNext()) {
             Delta delta = iterator.next();
 
@@ -211,8 +212,11 @@ public class Space {
     }
 
     public boolean collideGammas(Position position) {
+        if (gammas == null) {
+            gammas = new ArrayList<>(); // Initialize with an empty list
+            return false; // No collision with empty list
+        }
         Iterator<Gamma> iterator = gammas.iterator();
-
         while (iterator.hasNext()) {
             Gamma gamma = iterator.next();
 
@@ -224,9 +228,12 @@ public class Space {
         }
         return false;
     }
-
     public boolean collideBarriers(Position position) {
-        Iterator<Barrier> iterator = barriers.iterator();
+        if (barriers == null) {
+            barriers = new ArrayList<>(); // Initialize with an empty list
+            return false; // No collision with empty list
+        }
+        Iterator<Barrier> iterator =barriers.iterator();
 
         while (iterator.hasNext()) {
             Barrier barrier = iterator.next();
@@ -240,7 +247,7 @@ public class Space {
     }
 
     public boolean collideBoss(Position position) {
-        if (boss.getPosition().equals(position)) {
+        if (boss != null && boss.getPosition().equals(position)) {
             getHero().incrementHeroScore(boss.getPoints());
             boss = new Boss(999,999);
             return true;

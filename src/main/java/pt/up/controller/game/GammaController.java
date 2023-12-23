@@ -2,6 +2,7 @@ package pt.up.controller.game;
 
 import pt.up.gui.GUI;
 import pt.up.model.Position;
+import pt.up.model.game.elements.enemy.Enemy;
 import pt.up.model.game.elements.enemy.EnemyShot;
 import pt.up.model.game.elements.enemy.Gamma;
 import pt.up.model.game.space.Space;
@@ -10,20 +11,44 @@ import java.io.IOException;
 import java.util.Random;
 
 public class GammaController extends GameController{
-    private int i;
+    public int i;
+    private int side=1;  //1 vai para a direita e 0 para a esquerda
+    private int countpositions=0;
+    public boolean changed=false;
     private long lastMovement;
+    public int getSide() {return side;}
+    public void setSide(int i) {this.side = i;}
+    public void setCountpositions(int countpositions) {this.countpositions = countpositions;}
+    public int getCountpositions() {return countpositions;}
+    public void setChanged(boolean changed) {this.changed = changed;}
+    public boolean getChanged() {return changed;}
+
 
     public GammaController(Space space) {
         super(space);
         this.lastMovement = 0;
     }
-    private int side=1;  //1 vai para a direita e 0 para a esquerda
-    private int countpositions=0;
-    private boolean changed=false;
-    private void chagedirection(){
+
+    public void chagedirection(){
         if(side==1 && changed){side=0;}
         else if(side==0 && changed){side=1;}
         changed=false;
+    }
+    public void shotcolides(Enemy element) {
+        if(element.getIsShooting()) {
+            moveShotY();
+            Position position = getModel().getEnemyShot().getPosition();
+            if(getModel().collideCeiGro(position)) {
+                element.delShot();
+            }
+            if(getModel().collideHero(position)){
+                getModel().getHero().reduceHeroHealth(1);
+                element.delShot();
+            }
+            if(getModel().collideBarriers(position)){
+                element.delShot();
+            }
+        }
     }
     @Override
     public void step(pt.up.Space space, GUI.ACTION action, long time) throws IOException {
@@ -46,20 +71,7 @@ public class GammaController extends GameController{
                 createEnemyShot(i);
             }
             for (Gamma element : getModel().getGammas()) {
-                if (element.getIsShooting()){
-                    moveShotY();
-                    Position position = getModel().getEnemyShot().getPosition();
-                    if (getModel().getEnemyShot().getPosition().getY() > 32) {
-                        element.delShot();
-                    }
-                    if (getModel().collideHero(position)) {
-                        getModel().getHero().reduceHeroHealth(1);
-                        element.delShot();
-                    }
-                    if (getModel().collideBarriers(position)) {
-                        element.delShot();
-                    }
-                }
+                shotcolides(element);
             }
         }
     }
@@ -67,14 +79,14 @@ public class GammaController extends GameController{
         moveShot(getModel().getEnemyShot().getPosition().getDown());
     }
 
-    private void moveShot(Position position) {
+    public void moveShot(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getEnemyShot().setPosition(position);
             //   if (getModel().isMonster(position)) getModel().getHero().decreaseEnergy();
         }
     }
 
-    private void createEnemyShot(int i) {
+    public void createEnemyShot(int i) {
         if(!getModel().getGammas().get(i).getIsShooting())
         {
             getModel().setEnemyShot(new EnemyShot(getModel().getGammas().get(i).getPosition().getX(),getModel().getGammas().get(i).getPosition().getY()));
@@ -82,7 +94,7 @@ public class GammaController extends GameController{
         }
     }
 
-    private void move(Gamma gamma, Position position) {
+    public void move(Gamma gamma, Position position) {
         if (countpositions<51){
             if(side==1){
                 gamma.setPosition(new Position(gamma.getPosition().getX()+1, gamma.getPosition().getY()));
