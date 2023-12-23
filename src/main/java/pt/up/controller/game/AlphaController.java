@@ -16,7 +16,7 @@ public class AlphaController extends GameController{
     public int i;
     private int side=1;  //1 vai para a direita e 0 para a esquerda
     private int countpositions=0;
-    private boolean changed=false;
+    public boolean changed=false;
     private long lastMovement;
     public int getSide() {return side;}
     public void setSide(int i) {this.side = i;}
@@ -24,6 +24,9 @@ public class AlphaController extends GameController{
     public int getCountpositions() {return countpositions;}
     public void setChanged(boolean changed) {this.changed = changed;}
     public boolean getChanged() {return changed;}
+
+
+
 
     public AlphaController(Space space) {
         super(space);
@@ -55,7 +58,7 @@ public class AlphaController extends GameController{
             }
         }
     }
-    private void chagedirection(){
+    public void chagedirection(){
         if(side==1 && changed){side=0;}
         else if(side==0 && changed){side=1;}
         changed=false;
@@ -82,11 +85,11 @@ public class AlphaController extends GameController{
             }
         }
     }
-    private void shotcolides(Enemy element) {
+    public void shotcolides(Enemy element) {
         if(element.getIsShooting()){
             moveShotY();
             Position position = getModel().getEnemyShot().getPosition();
-            if(getModel().getEnemyShot().getPosition().getY() > 32) {
+            if(getModel().collideCeiGro(position)) {
                 element.delShot();
             }
             if(getModel().collideHero(position)){
@@ -102,13 +105,13 @@ public class AlphaController extends GameController{
         moveShot(getModel().getEnemyShot().getPosition().getDown());
     }
 
-    private void moveShot(Position position) {
+    public void moveShot(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getEnemyShot().setPosition(position);
         }
     }
 
-    private void createEnemyShot(int i) {
+    public void createEnemyShot(int i) {
         if(!getModel().getAlphas().get(i).getIsShooting())
         {   Position position = getModel().getAlphas().get(i).getPosition();
             getModel().setEnemyShot(new EnemyShot(position.getX(),position.getY()));

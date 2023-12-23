@@ -271,14 +271,6 @@ public class Space {
         }
         return false;
     }
-    public boolean collideWalls(Position position) {
-        for (Wall wall : walls) {
-            if (wall.getPosition().equals(position)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public boolean collideCoin(Position position) {
         return coin.getPosition().equals(position);
