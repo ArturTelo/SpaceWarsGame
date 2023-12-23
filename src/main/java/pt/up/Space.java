@@ -14,7 +14,7 @@ import static java.lang.System.exit;
 
 public class Space {
     private final LanternaGUI gui;
-    private State state;
+    public State state;
 
     public Space() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
@@ -46,7 +46,6 @@ public class Space {
         gui.close();
         exit(0);
     }
-
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
         new Space().start();
     }
