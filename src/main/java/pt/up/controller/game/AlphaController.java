@@ -120,21 +120,3 @@ public class AlphaController extends GameController{
     }
 }
 
-
-
-
-
-    /*if(element.getIsShooting()) {
-                   moveShotY();
-                   Position position = getModel().getEnemyShot().getPosition();
-                   if(getModel().getEnemyShot().getPosition().getY() > 32) {
-                       element.delShot();
-                   }
-                   if(getModel().collideHero(position)){
-                       getModel().getHero().reduceHeroHealth(1);
-                       element.delShot();
-                   }
-                   if(getModel().collideBarriers(position)){
-                       element.delShot();
-                   }
-               }*/
