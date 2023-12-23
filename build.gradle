@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'info.solidsoft.pitest' version '1.6.0'
 }
 
 group = 'pt.up'
@@ -8,6 +10,15 @@ version = '1.0.0'
 repositories {
     mavenCentral()
 }
+
+pitest {
+    junit5PluginVersion = '0.12'
+}
+
+application {
+    mainClass.set('pt.up.Space')
+}
+
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
@@ -19,5 +30,7 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        includeEngines('junit-jupiter', 'jqwik')
+    }
 }
