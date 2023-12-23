@@ -39,13 +39,9 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 
 ## IMPLEMENTED FEATURES
 
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
-
-## PLANNED FEATURES
-
 1. **Player Spaceship:**
    - A controllable spaceship at the bottom of the screen that can move horizontally to evade enemy attacks.
-  
+
 2. **Enemy Invaders:**
    - Rows of alien invaders that move horizontally and descend towards the player. They fire projectiles at the player's spaceship.
 
@@ -61,14 +57,8 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 6. **Score System:**
    - Keep track of the player's score, which increases each time an enemy invader is successfully destroyed.
 
-7. **Infinite Level:**
-   - Implement an infinite level and as the player progresses and as the time goes by, the speed, health and aggression of the enemy invaders increases and more enemies keep appearing.
-
 8. **Game Over:**
    - Implement a game-over condition. The game ends when the player's spaceship is hit by an enemy projectile and loses all its lives or when the enemy invaders reach the bottom of the screen.
-
-9. **Sound Effects:**
-   - Add sound effects for actions such as shooting, enemy destruction, and game over to enhance the gaming experience.
 
 10. **Graphics and Animation:**
     - Use graphics to represent the player's spaceship, enemy invaders, and projectiles. Implement animations for movements and explosions.
@@ -76,22 +66,31 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 11. **Responsive Controls:**
     - Ensure smooth and responsive controls for the player's spaceship, allowing easy navigation and shooting.
 
-12. **Power-ups:**
-    - Include 4 power-ups that provide temporary benefits to the player, such as increased damage on the player shots, invincibility for 20 seconds, double the player speed and double the player shots speed.
-
 13. **High Score Tracking:**
     - Keep track of the player's highest score across multiple game sessions.
+
+16. **Game Menu:**
+    - Create a visually appealing game window with a clear display of the player's score, remaining lives, and other relevant information.
+
+
+## PLANNED FEATURES
+
+Alas not all features that were planned in the sprint0 of the project were able to be implemented in time for the final delivery, so this section will remain to show all the other ideas that would 
+
+7. **Infinite Level:**
+   - Implement an infinite level and as the player progresses and as the time goes by, the speed, health and aggression of the enemy invaders increases and more enemies keep appearing.
+
+9. **Sound Effects:**
+   - Add sound effects for actions such as shooting, enemy destruction, and game over to enhance the gaming experience.
+
+12. **Power-ups:**
+    - Include 4 power-ups that provide temporary benefits to the player, such as increased damage on the player shots, invincibility for 20 seconds, double the player speed and double the player shots speed.
 
 14. **Pause/Resume Functionality:**
     - Allow the player to pause the game and resume from the same state.
 
 15. **Game Instructions:**
     - Provide clear instructions or a tutorial on how to play the game.
-
-16. **Game Menu:**
-    - Create a visually appealing game window with a clear display of the player's score, remaining lives, and other relevant information.
-
-These features collectively contribute to an engaging and enjoyable Space Invasors gaming experience.
 
 ## DESIGN
 
@@ -172,9 +171,11 @@ The use of the MVC Pattern in the current design allows the following benefits:
 - Facilitates unit testing as each component.
 - Supports scalability by allowing each component to evolve independently.
 
-### KNOWN CODE SMELLS
+## KNOWN CODE SMELLS
 
-Currently there are no known code smells.
+While doing the project some generic classes were created that would be useful for the implementation of all the planned features, but with the progress of time, some features were not implemented. Which turned the classes into dead code.
+We reckon that there are some classes where the Single Responsibility Principle is violated as well.
+
 
 ### TESTING
 
