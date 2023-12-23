@@ -179,7 +179,11 @@ We reckon that there are some classes where the Single Responsibility Principle 
 
 ### TESTING
 
-- Screenshot of coverage report.
+#### Coverage Tests
+
+![CoverageTests](src/main/resources/assets/coverageTests.png)
+
+
 - Link to mutation testing report.
 
 ### SELF-EVALUATION
