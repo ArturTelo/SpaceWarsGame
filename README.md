@@ -2,7 +2,7 @@
 
 [![jdk][openjdk-image]][openjdk-url]
 
-In this next-gen 2D game, you will be able to play a reimagined space invaders game, you will be able to play solo or local co-op, when playing local co-op both players will share the same screen and keyboard! There will be a lot of different enemies with different characteristics and therefore different difficulty. However the game is still in early access, so the single player mode is the only one available, local co-op will be patch soon!
+In this next-gen 2D game, you will be able to play a reimagined Space Invaders. A single player game were you can save the world against the Tyranny of the Empire. There will be a lot of different enemies with different characteristics that you can destroy, this allows for a dynamic and engaging gameplay, where different players can go against each other to see who achieves the highest score!
 
 This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida Fonseca* (*up202207742@fe.up.pt*) and *Nuno França* (*up2018075530@fe.up.pt*) for LDTS 2023/2024.
 
@@ -51,13 +51,14 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
    - A controllable spaceship at the bottom of the screen that can move horizontally to evade enemy attacks.
 
 2. **Enemy Invaders:**
-   - Rows of alien invaders that move horizontally and descend towards the player. They fire projectiles at the player's spaceship.
+   - Rows of enemys that move horizontally and descend towards the player. They fire projectiles at the player's spaceship.
+   - There is also a Boss that move back an forth with higher speed, the score of this enemy is higher than the others. 
 
 3. **Player Shooting:**
    - The player can shoot projectiles towards the enemy invaders to destroy them.
 
 4. **Enemy Movement:**
-   - The enemy invaders move left and right in a coordinated pattern. As they reach the screen edges, they descend one row.
+   - The enemy invaders move left and right in a coordinated pattern. As they reach the screen edges, they descend one row. Except for the Boss Enemy.
 
 5. **Collision Detection:**
    - Check for collisions between player shots and enemy invaders. If a collision occurs, the corresponding enemy invader is destroyed.
@@ -66,10 +67,10 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
    - Keep track of the player's score, which increases each time an enemy invader is successfully destroyed.
 
 8. **Game Over:**
-   - Implement a game-over condition. The game ends when the player's spaceship is hit by an enemy projectile and loses all its lives or when the enemy invaders reach the bottom of the screen.
+   - Implement a game-over condition. The game ends when the player's spaceship is hit by an enemy projectile and loses all its lives or all the enemies are destroyed by the player.
 
 10. **Graphics and Animation:**
-    - Use graphics to represent the player's spaceship, enemy invaders, and projectiles. Implement animations for movements and explosions.
+    - Use graphics to represent the player's spaceship, enemy invaders, and projectiles. Implement animations for movements.
 
 11. **Responsive Controls:**
     - Ensure smooth and responsive controls for the player's spaceship, allowing easy navigation and shooting.
