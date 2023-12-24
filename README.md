@@ -10,6 +10,10 @@ This project was developed by *Artur Telo* (*up202104487@fe.up.pt*), *Margarida 
 
 ![Heck yeah](src/main/resources/assets/spacewars.gif)
 
+## Game Over
+
+![Heck yeah](src/main/resources/assets/gameOver.gif)
+
 ## Mockups
 
 ![Menu](src/main/resources/readme/Menu.png)
