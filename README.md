@@ -192,8 +192,8 @@ We reckon that there are some classes where the Single Responsibility Principle 
 
 ![CoverageTests](src/main/resources/assets/coverageTests.png)
 
-
-- Link to mutation testing report.
+#### Mutation Tests
+- There was a technical difficulty in the procedure of running Mutation Tests. 
 
 ### SELF-EVALUATION
 
