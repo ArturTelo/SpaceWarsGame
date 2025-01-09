@@ -195,11 +195,5 @@ We reckon that there are some classes where the Single Responsibility Principle 
 #### Mutation Tests
 - There was a technical difficulty in the procedure of running Mutation Tests. 
 
-### SELF-EVALUATION
-
-- Artur Telo: 33.3(3)%
-- Margarida Fonseca: 33.3(3)%
-- Nuno França: 33.3(3)%
-
 [openjdk-image]: https://img.shields.io/badge/OpenJDK-21.0.1-blue
 [openjdk-url]: https://www.oracle.com/java/technologies/javase/21-0-1-relnotes.html
